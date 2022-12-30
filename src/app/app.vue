@@ -9,7 +9,7 @@
 export default {
   data() {
     return {
-      name: '宁皓网',
+      name: 'Vue.js 项目实践：准备项目',
     };
   },
 

@@ -1,3 +1,3 @@
 <template>
-  <div>欢迎访问宁皓网：）</div>
+  <div>首页</div>
 </template>
