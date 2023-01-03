@@ -1,29 +1,5 @@
-# structure from ninghao-vue
+# Vue.js 项目实践：应用布局
 
-## Project setup
+## 1.1 用 normalize 样式表重置默认样式
 
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-
-```
-yarn build
-```
-
-### Lints and fixes files
-
-```
-yarn lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+不同的浏览器设置的元素默认样式可能会有一些不太一样。所以使用统一的 normalize.css 重置默认的样式。
