@@ -43,7 +43,11 @@ export default defineComponent({
       return 'app-icon';
     },
     appIconStyles() {
-      return { fontSize: this.size + 'px', color: this.color };
+      return {
+        fontSize: this.size + 'px',
+        width: this.size + 'px',
+        color: this.color,
+      };
     },
   },
 
