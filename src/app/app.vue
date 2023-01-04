@@ -1,15 +1,16 @@
 <template>
-  <h3>
-    <router-link to="/">{{ name }}</router-link>
-  </h3>
-  <router-view></router-view>
+  <component :is="layout"><router-view></router-view></component>
 </template>
 
 <script>
+import AppLayout from '@/app/layout/app-layout.vue';
+
 export default {
+  components: { AppLayout },
   data() {
     return {
       name: 'Vue.js 项目实践：准备项目',
+      layout: 'AppLayout',
     };
   },
 
