@@ -1,5 +1,5 @@
 <template>
-  <div>PageAside</div>
+  <div class="page-aside">PageAside</div>
 </template>
 
 <script>

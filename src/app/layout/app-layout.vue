@@ -2,7 +2,7 @@
   <div class="page">
     <PageHeader />
     <PageAside />
-    <div class="pagemain">
+    <div class="page-main">
       <slot></slot>
     </div>
   </div>

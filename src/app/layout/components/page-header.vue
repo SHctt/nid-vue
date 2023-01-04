@@ -1,5 +1,7 @@
 <template>
-  <div>PageHeader</div>
+  <div class="page-header">
+    <div class="container">PageHeader</div>
+  </div>
 </template>
 
 <script>
