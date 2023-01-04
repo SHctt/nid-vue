@@ -1,29 +1,21 @@
-# structure from ninghao-vue
+# Vue.js 项目实践：应用布局
 
-## Project setup
+## 1.1 用 normalize 样式表重置默认样式
 
-```
-yarn install
-```
+不同的浏览器设置的元素默认样式可能会有一些不太一样。所以使用统一的 normalize.css 重置默认的样式。
 
-### Compiles and hot-reloads for development
+## 1.2 定义应用标志组件（AppLogo）
 
-```
-yarn serve
-```
+## 1.3 定义应用图标组件（AppIcon）
 
-### Compiles and minifies for production
+## 1.4 定义页面布局组件（AppLayout）
 
-```
-yarn build
-```
+## 1.5 页面布局基本样式
 
-### Lints and fixes files
+## 1.6 定义应用边栏组件（AppSidebar）
 
-```
-yarn lint
-```
+## 1.7 应用边栏组件样式
 
-### Customize configuration
+## 1.8 定义应用工具栏组件（AppToolbar）
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 1.9 应用工具栏组件样式
