@@ -1,5 +1,7 @@
 <template>
-  <app-icon name="search" class="app-toolbaritem search" />
+  <div class="app-toolbar-item search">
+    <app-icon name="search" />
+  </div>
 </template>
 
 <script>

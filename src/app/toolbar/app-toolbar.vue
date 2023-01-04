@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app-toolbar">
     <app-toolbar-item-search />
   </div>
 </template>
@@ -47,4 +47,6 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+@import './styles/app-toolbar.css';
+</style>
