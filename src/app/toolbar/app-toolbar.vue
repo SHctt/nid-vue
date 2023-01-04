@@ -1,12 +1,15 @@
 <template>
-  <div>首页</div>
+  <div>
+    <app-toolbar-item-search />
+  </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
+import AppToolbarItemSearch from '@/app/toolbar/components/app-toolbar-item-search.vue';
 
 export default defineComponent({
-  name: 'AppHome',
+  name: 'AppToolbar',
 
   /**
    * 属性
@@ -40,7 +43,7 @@ export default defineComponent({
   /**
    * 使用组件
    */
-  components: {},
+  components: { AppToolbarItemSearch },
 });
 </script>
 

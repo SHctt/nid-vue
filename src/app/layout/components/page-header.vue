@@ -1,11 +1,14 @@
 <template>
   <div class="page-header">
-    <div class="container">PageHeader</div>
+    <div class="container">
+      <app-toolbar />
+    </div>
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
+import AppToolbar from '@/app/toolbar/app-toolbar.vue';
 
 export default defineComponent({
   name: 'PageHeader',
@@ -42,7 +45,7 @@ export default defineComponent({
   /**
    * 使用组件
    */
-  components: {},
+  components: { AppToolbar },
 });
 </script>
 

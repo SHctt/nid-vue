@@ -1,12 +1,13 @@
 <template>
-  <div>首页</div>
+  <app-icon name="search" class="app-toolbaritem search" />
 </template>
 
 <script>
 import { defineComponent } from 'vue';
+import AppIcon from '@/app/components/app-icon.vue';
 
 export default defineComponent({
-  name: 'AppHome',
+  name: 'AppToolbarItemSearch',
 
   /**
    * 属性
@@ -40,7 +41,7 @@ export default defineComponent({
   /**
    * 使用组件
    */
-  components: {},
+  components: { AppIcon },
 });
 </script>
 
