@@ -1,8 +1,6 @@
 <template>
   <div class="app-sidebar">
-    <router-link to="/">
-      <AppSidebarItemBrand />
-    </router-link>
+    <AppSidebarItemBrand />
     <AppSidebarItemPopular />
     <AppSidebarItemAdd />
   </div>
@@ -53,4 +51,6 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+@import './styles/app-sidebar.css';
+</style>
