@@ -1,5 +1,5 @@
 <template>
-  <div class="page light">
+  <div :class="['page', theme]">
     <PageHeader />
     <PageAside />
     <div class="page-main">
@@ -12,6 +12,7 @@
 import { defineComponent } from 'vue';
 import PageHeader from './components/page-header.vue';
 import PageAside from './components/page-aside.vue';
+import { mapGetters } from 'vuex';
 
 export default defineComponent({
   name: 'AppLayout',
@@ -31,7 +32,11 @@ export default defineComponent({
   /**
    * 计算属性
    */
-  computed: {},
+  computed: {
+    ...mapGetters({
+      theme: 'layout/theme',
+    }),
+  },
 
   /**
    * 已创建
