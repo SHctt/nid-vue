@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="page light">
     <PageHeader />
     <PageAside />
     <div class="page-main">
