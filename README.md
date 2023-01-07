@@ -1,21 +1,23 @@
-# Vue.js 项目实践：应用布局
+# Vue.js 项目实践：应用主题
 
-## 1.1 用 normalize 样式表重置默认样式
+## 2.1 Bug Fix：Safari 浏览器下无法正常显示应用图标
 
-不同的浏览器设置的元素默认样式可能会有一些不太一样。所以使用统一的 normalize.css 重置默认的样式。
+## 2.2 添加基本样式表（base）
 
-## 1.2 定义应用标志组件（AppLogo）
+## 2.3 添加主题样式表（theme）
 
-## 1.3 定义应用图标组件（AppIcon）
+## 2.4 定义布局 Store 模块（layoutStoreModule）
 
-## 1.4 定义页面布局组件（AppLayout）
+## 2.5 定义主题切换器组件（AppSidebarItemTheme）
 
-## 1.5 页面布局基本样式
+问题：themIcon 的值发生了变化，但是图标没有自定切换
 
-## 1.6 定义应用边栏组件（AppSidebar）
+## 2.6 根据主题切换标志与图标颜色
 
-## 1.7 应用边栏组件样式
+## 2.7 定义本地存储服务方法
 
-## 1.8 定义应用工具栏组件（AppToolbar）
+## 2.8 定义本地存储 Store 插件（localStorageStorePlugin）
 
-## 1.9 应用工具栏组件样式
+## 2.9 创建应用布局组件时设置主题
+
+created()，读取本地数据，确定主题

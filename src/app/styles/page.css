@@ -1,4 +1,5 @@
 .page {
+  color: var(--primary-text-color);
   display: grid;
   grid-template-columns: 96px 1fr;
   grid-template-rows: 66px auto;
@@ -9,6 +10,7 @@
 }
 
 .page-header {
+  background: var(--page-header-backgroud);
   grid-area: h;
   display: flex;
   padding: 8px 32px;
@@ -26,6 +28,7 @@
 }
 
 .page-aside {
+  background: var(--page-aside-backgroud);
   grid-area: a;
   display: flex;
   justify-content: center;
@@ -37,6 +40,7 @@
 }
 
 .page-main {
+  background: var(--primary-backgroud);
   grid-area: m;
   padding: 32px;
 }
