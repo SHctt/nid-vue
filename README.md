@@ -17,3 +17,7 @@
 ## 2.7 定义本地存储服务方法
 
 ## 2.8 定义本地存储 Store 插件（localStorageStorePlugin）
+
+## 2.9 创建应用布局组件时设置主题
+
+created()，读取本地数据，确定主题
