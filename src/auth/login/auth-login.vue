@@ -1,5 +1,16 @@
 <template>
-  <div>AuthLogin</div>
+  <div class="auth-login">
+    <div class="form">
+      <h1 class="header">用户登陆</h1>
+      <div class="field">
+        <input type="text" placeholder="用户名" v-model="name" />
+        <input type="password" placeholder="密码" v-model="password" />
+      </div>
+      <div class="field">
+        <button class="button large" @click="onClickLoginButton">登陆</button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -7,6 +18,10 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'AuthLogin',
+
+  title() {
+    return '用户登陆';
+  },
 
   /**
    * 属性
@@ -17,7 +32,10 @@ export default defineComponent({
    * 数据
    */
   data() {
-    return {};
+    return {
+      name: '',
+      password: '',
+    };
   },
 
   /**
@@ -35,7 +53,11 @@ export default defineComponent({
   /**
    * 组件方法
    */
-  methods: {},
+  methods: {
+    onClickLoginButton() {
+      console.log(this.name, this.password);
+    },
+  },
 
   /**
    * 使用组件
@@ -44,4 +66,10 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.auth-login {
+  max-width: 250px;
+  margin: 0 auto;
+  padding: 32px;
+}
+</style>
