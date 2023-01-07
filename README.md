@@ -15,3 +15,5 @@
 ## 2.6 根据主题切换标志与图标颜色
 
 ## 2.7 定义本地存储服务方法
+
+## 2.8 定义本地存储 Store 插件（localStorageStorePlugin）
