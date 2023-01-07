@@ -4,9 +4,7 @@
       <h1 class="header">用户登陆</h1>
       <text-field placeholder="用户" v-model="name" />
       <text-field type="password" v-model="password" placeholder="密码" />
-      <div class="field">
-        <button class="button large" @click="onClickLoginButton">登陆</button>
-      </div>
+      <button-field text="登陆" size="large" @click="onClickLoginButton" />
     </div>
   </div>
 </template>
@@ -14,6 +12,7 @@
 <script>
 import { defineComponent } from 'vue';
 import TextField from '@/app/components/text-field.vue';
+import ButtonField from '@/app/components/button-field.vue';
 
 export default defineComponent({
   name: 'AuthLogin',
@@ -61,7 +60,7 @@ export default defineComponent({
   /**
    * 使用组件
    */
-  components: { TextField },
+  components: { TextField, ButtonField },
 });
 </script>
 
