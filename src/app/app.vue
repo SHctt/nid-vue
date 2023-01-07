@@ -9,7 +9,7 @@ export default {
   components: { AppLayout },
   data() {
     return {
-      name: 'Vue.js 项目实践：准备项目',
+      name: '身份验证',
       layout: 'AppLayout',
     };
   },
