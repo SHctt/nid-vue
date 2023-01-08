@@ -1,23 +1,21 @@
-# Vue.js 项目实践：应用主题
+# Vue.js 项目实践：身份验证
 
-## 2.1 Bug Fix：Safari 浏览器下无法正常显示应用图标
+## 3.1 定义登录路由
 
-## 2.2 添加基本样式表（base）
+## 3.2 定义登录组件（AuthLogin）
 
-## 2.3 添加主题样式表（theme）
+## 3.3 设计表单元素样式（form.css, button.css）
 
-## 2.4 定义布局 Store 模块（layoutStoreModule）
+## 3.4 定义文本框表单字段组件（TextField）
 
-## 2.5 定义主题切换器组件（AppSidebarItemTheme）
+## 3.5 定义按钮表单字段组件（ButtonField）
 
-问题：themIcon 的值发生了变化，但是图标没有自定切换
+## 3.6 定义用户登录 Store 模块（authLoginStoreModule）
 
-## 2.6 根据主题切换标志与图标颜色
+## 3.7 使用用户登录 Store 模块（authLoginStoreModule）
 
-## 2.7 定义本地存储服务方法
+## 3.8 在本地存储里存储用户令牌
 
-## 2.8 定义本地存储 Store 插件（localStorageStorePlugin）
+## 3.9 定义表示当前用户是否登录的获取器（isLoggedIn）
 
-## 2.9 创建应用布局组件时设置主题
-
-created()，读取本地数据，确定主题
+## 3.10 设置 API HTTP 客户端 Authorization 头部
