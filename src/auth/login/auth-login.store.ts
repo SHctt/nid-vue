@@ -55,7 +55,7 @@ export const authLoginStoreModule: Module<AuthLoginStoreState, RootState> = {
    * 动作
    */
   actions: {
-    async login({ commit }, data) {
+    async login({ commit, dispatch }, data) {
       commit('setLoading', true);
 
       try {
@@ -63,6 +63,9 @@ export const authLoginStoreModule: Module<AuthLoginStoreState, RootState> = {
         commit('setLoginResponseData', response.data);
         commit('setLoading', false);
         commit('auth/setToken', response.data.token, { root: true });
+        dispatch('auth/configApiHttpClientAuthHeader', response.data.token, {
+          root: true,
+        });
 
         return response;
       } catch (error) {
