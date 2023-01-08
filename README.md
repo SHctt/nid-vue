@@ -15,3 +15,5 @@
 ## 3.7 使用用户登录 Store 模块（authLoginStoreModule）
 
 ## 3.8 在本地存储里存储用户令牌
+
+## 3.9 定义表示当前用户是否登录的获取器（isLoggedIn）

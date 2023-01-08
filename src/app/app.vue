@@ -3,7 +3,9 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 import AppLayout from '@/app/layout/app-layout.vue';
+import { getStorage } from './app.service';
 
 export default {
   components: { AppLayout },
@@ -14,8 +16,19 @@ export default {
     };
   },
 
+  methods: {
+    ...mapMutations({
+      setToken: 'auth/setToken',
+    }),
+  },
+
   created() {
-    console.log(this.$store.state);
+    // 用户令牌
+    const token = getStorage('nid');
+
+    if (token) {
+      this.setToken(token);
+    }
   },
 };
 </script>
