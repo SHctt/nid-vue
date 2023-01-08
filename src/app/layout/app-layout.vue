@@ -13,7 +13,7 @@ import { defineComponent } from 'vue';
 import PageHeader from './components/page-header.vue';
 import PageAside from './components/page-aside.vue';
 import { mapGetters, mapMutations } from 'vuex';
-import { getStorage } from '../app.service';
+import { getStorage } from '@/app/app.service';
 
 export default defineComponent({
   name: 'AppLayout',

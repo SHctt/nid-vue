@@ -13,3 +13,5 @@
 ## 3.6 定义用户登录 Store 模块（authLoginStoreModule）
 
 ## 3.7 使用用户登录 Store 模块（authLoginStoreModule）
+
+## 3.8 在本地存储里存储用户令牌
