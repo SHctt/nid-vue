@@ -11,7 +11,7 @@ export default {
   components: { AppLayout },
   data() {
     return {
-      name: '身份验证',
+      name: '消息提示',
       layout: 'AppLayout',
     };
   },
@@ -34,6 +34,7 @@ export default {
       this.setToken(token);
       this.configApiHttpClientAuthHeader(token);
     }
+    // console.log(this.$store.state);
   },
 };
 </script>

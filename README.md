@@ -1,21 +1,17 @@
-# Vue.js 项目实践：身份验证
+# Vue.js 项目实践：消息提示
 
-## 3.1 定义登录路由
+## 4.1 定义通知提示组件（AppNotification）
 
-## 3.2 定义登录组件（AuthLogin）
+## 4.2 定义通知提示信息组件（AppNotificationMessage）
 
-## 3.3 设计表单元素样式（form.css, button.css）
+## 4.3 通知提示信息组件样式
 
-## 3.4 定义文本框表单字段组件（TextField）
+## 4.4 定义通知提示 Store 模块（appNotificationStoreModule）
 
-## 3.5 定义按钮表单字段组件（ButtonField）
+## 4.5 推送通知提示信息（pushMessage）
 
-## 3.6 定义用户登录 Store 模块（authLoginStoreModule）
+## 4.6 收回通知提示信息（dismissMessage）
 
-## 3.7 使用用户登录 Store 模块（authLoginStoreModule）
+## 4.7 通知提示信息动画与过渡
 
-## 3.8 在本地存储里存储用户令牌
-
-## 3.9 定义表示当前用户是否登录的获取器（isLoggedIn）
-
-## 3.10 设置 API HTTP 客户端 Authorization 头部
+## 4.8 用户登录时显示通知提示信息
