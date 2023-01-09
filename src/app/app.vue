@@ -34,6 +34,7 @@ export default {
       this.setToken(token);
       this.configApiHttpClientAuthHeader(token);
     }
+    // console.log(this.$store.state);
   },
 };
 </script>
