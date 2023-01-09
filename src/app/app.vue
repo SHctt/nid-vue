@@ -11,7 +11,7 @@ export default {
   components: { AppLayout },
   data() {
     return {
-      name: '消息提示',
+      name: '用户头像',
       layout: 'AppLayout',
     };
   },
