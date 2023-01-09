@@ -9,3 +9,5 @@
 ## 5.4 用户头像的链接
 
 ## 5.5 定义用户档案 Store 模块（userShowStoreModule）
+
+## 5.6 定义获取当前用户用的动作（getCurrentUser）
