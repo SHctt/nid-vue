@@ -1,12 +1,12 @@
 <template>
   <div class="app-sidebar-item user">
-    <user-avatar :user="{ id: 6, avatar: 1 }" />
+    <user-avatar :user="{ id: 6, avatar: 5 }" />
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
-import UserAvatar from '@/user/user-avatar.vue';
+import UserAvatar from '@/user/components/user-avatar.vue';
 
 export default defineComponent({
   name: 'AppSidebarItemUser',
