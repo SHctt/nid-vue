@@ -30,19 +30,19 @@ export default defineComponent({
     return {
       menuItem: [
         {
-          linkTo: '',
+          linkTo: { name: 'userPosts' },
           text: '作品',
         },
         {
-          linkTo: 'liked',
+          linkTo: { name: 'userLiked' },
           text: '订阅',
         },
         {
-          linkTo: 'comments',
+          linkTo: { name: 'userComments' },
           text: '评论',
         },
         {
-          linkTo: 'replies',
+          linkTo: { name: 'userReplies' },
           text: '回复',
         },
       ],
