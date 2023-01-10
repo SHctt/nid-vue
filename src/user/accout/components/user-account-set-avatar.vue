@@ -2,14 +2,16 @@
   <div class="user-account-set-avatar">
     <div class="from">
       <h2>设置头像</h2>
-      <button-field text="提交" size="large" @click="onClickSubmitButton" />
-      <file-field
-        text="选择文件"
-        size="large"
-        name="avatar"
-        fileType="image/*"
-        @change="onChangeAvatarFileField"
-      />
+      <div class="field">
+        <file-field
+          text="选择文件"
+          size="large"
+          name="avatar"
+          fileType="image/*"
+          @change="onChangeAvatarFileField"
+        />
+        <button-field text="提交" size="large" @click="onClickSubmitButton" />
+      </div>
     </div>
   </div>
 </template>
@@ -54,8 +56,8 @@ export default defineComponent({
       console.log('提交头像');
     },
 
-    onChangeAvatarFileField() {
-      console.log('files');
+    onChangeAvatarFileField(files) {
+      console.log(files);
     },
   },
 
