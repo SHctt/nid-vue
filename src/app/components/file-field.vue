@@ -1,5 +1,5 @@
 <template>
-  <div class="fields">
+  <div class="field">
     <label :for="name" :class="['button', 'outline', size]">{{ text }}</label>
     <input
       type="file"

@@ -3,6 +3,11 @@
     <div class="from">
       <h2>设置头像</h2>
       <div class="field">
+        <div class="user-avatar large" v-if="avatarPreviewImage">
+          <img :src="avatarPreviewImage" class="image" />
+        </div>
+      </div>
+      <div class="fields">
         <file-field
           text="选择文件"
           size="large"
@@ -33,7 +38,9 @@ export default defineComponent({
    * 数据
    */
   data() {
-    return {};
+    return {
+      avatarPreviewImage: '',
+    };
   },
 
   /**
@@ -57,7 +64,19 @@ export default defineComponent({
     },
 
     onChangeAvatarFileField(files) {
-      console.log(files);
+      if (files.length) {
+        this.createAvatarPreviewImage(files[0]);
+      }
+    },
+
+    createAvatarPreviewImage(file) {
+      const fileReader = new FileReader();
+
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = event => {
+        this.avatarPreviewImage = event.target.result;
+      };
     },
   },
 
