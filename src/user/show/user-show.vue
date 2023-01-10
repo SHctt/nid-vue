@@ -44,6 +44,13 @@ export default defineComponent({
     }),
   },
 
+  watch: {
+    // 当前用户的变化
+    userId() {
+      this.getUserById(this.userId);
+    },
+  },
+
   /**
    * 已创建
    */
