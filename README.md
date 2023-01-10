@@ -17,3 +17,5 @@
 ## 7.7-选择头像文件后预览用户头像
 
 修正：修正了部分样式
+
+## 7.8-定义用户账户 Store 模块（userAccountStoreModule）
