@@ -28,7 +28,7 @@ export const userStoreModule: Module<UserStoreState, RootState> = {
    * 获取器
    */
   getters: {
-    currenUser(state) {
+    currentUser(state) {
       return state.currentUser;
     },
   },
@@ -37,7 +37,7 @@ export const userStoreModule: Module<UserStoreState, RootState> = {
    * 修改器
    */
   mutations: {
-    getCurrentUser(state, data) {
+    setCurrentUser(state, data) {
       state.currentUser = data;
     },
   },
@@ -48,7 +48,7 @@ export const userStoreModule: Module<UserStoreState, RootState> = {
   actions: {
     async getCurrentUser({ commit, dispatch }, userId) {
       try {
-        const response = await dispatch('/users/show/getUserById', userId, {
+        const response = await dispatch('user/show/getUserById', userId, {
           root: true,
         });
 

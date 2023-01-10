@@ -40,7 +40,7 @@ export const userShowStoreModule: Module<UserShowStoreState, RootState> = {
       state.loading = data;
     },
 
-    setUser(state, data) {
+    setResponseData(state, data) {
       state.user = data;
     },
   },

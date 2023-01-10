@@ -16,7 +16,7 @@ export interface RootState {
   layout: LayoutStoreState;
   auth: AuthLoginStoreState;
   notification: AppNotificationStoreState;
-  show: UserStoreState;
+  user: UserStoreState;
 }
 
 /**
@@ -32,7 +32,7 @@ const store = createStore({
     layout: layoutStoreModule,
     auth: authStoreModule,
     notification: appNotificationStoreModule,
-    show: userStoreModule,
+    user: userStoreModule,
   },
 
   plugins: [localStorageStorePlugin],

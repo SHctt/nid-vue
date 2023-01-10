@@ -1,5 +1,7 @@
 <template>
-  <component :is="layout"><router-view></router-view></component>
+  <component :is="layout">
+    <router-view></router-view>
+  </component>
 </template>
 
 <script>
@@ -22,6 +24,7 @@ export default {
     }),
 
     ...mapActions({
+      getCurrentUser: 'user/getCurrentUser',
       configApiHttpClientAuthHeader: 'auth/configApiHttpClientAuthHeader',
     }),
   },
@@ -34,7 +37,14 @@ export default {
       this.setToken(token);
       this.configApiHttpClientAuthHeader(token);
     }
-    // console.log(this.$store.state);
+
+    // 当前用户
+    const userId = getStorage('uid');
+
+    if (userId) {
+      this.getCurrentUser(userId);
+    }
+    console.log(this.$store.state);
   },
 };
 </script>
