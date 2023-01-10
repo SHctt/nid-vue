@@ -7,3 +7,5 @@
 ## 7.2-创建用户账户组件（UserAccount）
 
 ## 7.3-显示用户账户的菜单项
+
+## 7.4-创建设置用户头像的组件（UserAccountSetAvatar）
