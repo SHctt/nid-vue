@@ -48,7 +48,11 @@ export default defineComponent({
       isLoggedIn: 'auth/isLoggedIn',
     }),
     userAvatarClasses() {
-      return ['user-avatar', this.size];
+      return [
+        'user-avatar',
+        this.size,
+        { fade: !this.isLoggedIn && !this.user }, //未登陆时淡化头像样式
+      ];
     },
 
     userAvatarSource() {
