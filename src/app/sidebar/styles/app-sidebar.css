@@ -18,3 +18,7 @@
 .app-sidebar-item {
   margin-bottom: 32px;
 }
+
+.app-sidebar-item.brand {
+  margin-bottom: 64px;
+}

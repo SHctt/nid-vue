@@ -71,8 +71,9 @@ export default defineComponent({
         });
         console.log(response);
         this.pushMessage({ content: `欢迎回来，${response.data.name}` });
+
+        this.$router.back(); // 登录成功以后返回到上一级的页面
       } catch (error) {
-        console.log(error);
         this.pushMessage({ content: error.data.message });
       }
     },

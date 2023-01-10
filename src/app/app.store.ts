@@ -8,6 +8,7 @@ import {
   appNotificationStoreModule,
   AppNotificationStoreState,
 } from './notification/app-notification.store';
+import { userStoreModule, UserStoreState } from '../user/user.store';
 
 export interface RootState {
   appName: string;
@@ -15,6 +16,7 @@ export interface RootState {
   layout: LayoutStoreState;
   auth: AuthLoginStoreState;
   notification: AppNotificationStoreState;
+  user: UserStoreState;
 }
 
 /**
@@ -30,6 +32,7 @@ const store = createStore({
     layout: layoutStoreModule,
     auth: authStoreModule,
     notification: appNotificationStoreModule,
+    user: userStoreModule,
   },
 
   plugins: [localStorageStorePlugin],

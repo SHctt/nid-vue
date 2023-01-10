@@ -1,0 +1,30 @@
+/* 圆形头像 */
+.user-avatar > .image {
+  border-radius: 50%;
+  cursor: pointer;
+  width: 100%;
+}
+.user-avatar > .link > .image {
+  border-radius: 50%;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* 头像尺寸 */
+.user-avatar.small {
+  width: 32px;
+  height: 32px;
+}
+.user-avatar.medium {
+  width: 64px;
+  height: 64px;
+}
+.user-avatar.large {
+  width: 128px;
+  height: 128px;
+}
+
+/* 淡化头像效果 */
+.user-avatar.fade {
+  opacity: 0.3;
+}
