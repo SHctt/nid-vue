@@ -13,7 +13,7 @@ export default {
   components: { AppLayout },
   data() {
     return {
-      name: '用户头像',
+      name: '用户页面',
       layout: 'AppLayout',
     };
   },
