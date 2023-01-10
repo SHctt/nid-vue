@@ -2,7 +2,7 @@
   <div class="user-show-menu">
     <div
       class="user-show-menu-item"
-      v-for="(item, index) in menuItem"
+      v-for="(item, index) in menuItems"
       :key="index"
     >
       <router-link class="link" :to="item.linkTo">
@@ -14,6 +14,7 @@
 
 <script>
 import { defineComponent } from 'vue';
+import { mapGetters } from 'vuex';
 
 export default defineComponent({
   name: 'UserShowMenu',
@@ -21,14 +22,18 @@ export default defineComponent({
   /**
    * 属性
    */
-  props: {},
+  props: {
+    user: {
+      type: Object,
+    },
+  },
 
   /**
    * 数据
    */
   data() {
     return {
-      menuItem: [
+      menuItems: [
         {
           linkTo: { name: 'userPosts' },
           text: '作品',
@@ -46,13 +51,35 @@ export default defineComponent({
           text: '回复',
         },
       ],
+
+      userAccountMenu: {
+        linkTo: { name: 'userAccount' },
+        text: '账户',
+      },
     };
   },
 
   /**
    * 计算属性
    */
-  computed: {},
+  computed: {
+    ...mapGetters({
+      currentUser: 'user/currentUser',
+    }),
+  },
+
+  /**
+   * 监控
+   */
+  watch: {
+    user() {
+      if (this.currentUser && this.currentUser.id === this.user.id) {
+        this.addUserAccountMenu();
+      } else {
+        this.deleteUserAccountMenu();
+      }
+    },
+  },
 
   /**
    * 已创建
@@ -64,7 +91,17 @@ export default defineComponent({
   /**
    * 组件方法
    */
-  methods: {},
+  methods: {
+    addUserAccountMenu() {
+      if (this.menuItems.some(item => item.text !== '账户')) {
+        this.menuItems = [...this.menuItems, this.userAccountMenu];
+      }
+    },
+
+    deleteUserAccountMenu() {
+      this.menuItems = this.menuItems.filter(item => item.text !== '账户');
+    },
+  },
 
   /**
    * 使用组件
