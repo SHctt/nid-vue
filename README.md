@@ -20,4 +20,6 @@
 
 ## 7.8-定义用户账户 Store 模块（userAccountStoreModule）
 
-## 7.9-上传用户头像（createAvatar）
+## 7.9-上传用户头像（createAvatar），并在头像组件中实时显示上传的头像
+
+错误未解决：上传头像失败，insomnia 测试可以成功，这里确认上传会显示错误

@@ -2,12 +2,12 @@
   <div class="user-account-set-avatar">
     <div class="from">
       <h2>设置头像</h2>
-      <div class="field">
-        <div class="user-avatar large" v-if="avatarPreviewImage">
-          <img :src="avatarPreviewImage" class="image" />
-        </div>
-      </div>
       <div class="fields">
+        <div class="field">
+          <div class="user-avatar medium" v-if="avatarPreviewImage">
+            <img :src="avatarPreviewImage" class="image" />
+          </div>
+        </div>
         <file-field
           text="选择文件"
           size="large"
@@ -24,7 +24,7 @@
 <script>
 import ButtonField from '@/app/components/button-field.vue';
 import FileField from '@/app/components/file-field.vue';
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters, mapMutations } from 'vuex';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -40,7 +40,6 @@ export default defineComponent({
    */
   data() {
     return {
-      avatarPreviewImage: '',
       avatarFile: null,
     };
   },
@@ -48,7 +47,11 @@ export default defineComponent({
   /**
    * 计算属性
    */
-  computed: {},
+  computed: {
+    ...mapGetters({
+      avatarPreviewImage: 'user/account/avatarPreviewImage',
+    }),
+  },
 
   /**
    * 已创建
@@ -61,6 +64,9 @@ export default defineComponent({
    * 组件方法
    */
   methods: {
+    ...mapMutations({
+      setAvatarPreviewImage: 'user/account/setAvatarPreviewImage',
+    }),
     ...mapActions({
       createAvatar: 'user/account/createAvatar',
       pushMessage: 'notification/pushMessage',
@@ -80,6 +86,7 @@ export default defineComponent({
       if (files.length) {
         this.avatarFile = files[0];
         this.createAvatarPreviewImage(this.avatarFile);
+        console.log(this.avatarFile);
       }
     },
 
@@ -89,7 +96,7 @@ export default defineComponent({
       fileReader.readAsDataURL(file);
 
       fileReader.onload = event => {
-        this.avatarPreviewImage = event.target.result;
+        this.setAvatarPreviewImage(event.target.result);
       };
     },
   },

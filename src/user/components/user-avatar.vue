@@ -46,6 +46,8 @@ export default defineComponent({
   computed: {
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
+      avatarPreviewImage: 'user/account/avatarPreviewImage',
+      currentUser: 'user/currentUser',
     }),
     userAvatarClasses() {
       return [
@@ -64,6 +66,13 @@ export default defineComponent({
         avatarSource = '/icons/account-black-32px.svg';
       }
 
+      if (
+        this.currentUser &&
+        this.currentUser.id === this.user.id &&
+        this.avatarPreviewImage
+      ) {
+        avatarSource = this.avatarPreviewImage;
+      }
       return avatarSource;
     },
 
