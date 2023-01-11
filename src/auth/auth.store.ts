@@ -47,7 +47,7 @@ export const authStoreModule: Module<AuthStoreState, RootState> = {
    */
   actions: {
     configApiHttpClientAuthHeader(_, data) {
-      apiHttpClient.defaults.headers.common['Authrization'] = `Bearer ${data}`;
+      apiHttpClient.defaults.headers.common['Authorization'] = `Bearer ${data}`;
     },
   },
 

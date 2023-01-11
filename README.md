@@ -19,3 +19,5 @@
 修正：修正了部分样式
 
 ## 7.8-定义用户账户 Store 模块（userAccountStoreModule）
+
+## 7.9-上传用户头像（createAvatar）
