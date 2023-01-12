@@ -46,3 +46,8 @@
 .user-menu-header .link:hover {
   color: var(--primary-text-color) !important;
 }
+
+.user-menu-footer {
+  padding-top: 16px;
+  padding-bottom: 24px;
+}

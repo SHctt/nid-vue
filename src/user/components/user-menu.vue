@@ -4,6 +4,9 @@
     <div class="user-menu-header">
       <user-name :user="currentUser" v-if="currentUser" />
     </div>
+    <div class="user-menu-footer">
+      <button class="button block">退出登陆</button>
+    </div>
   </div>
 </template>
 
