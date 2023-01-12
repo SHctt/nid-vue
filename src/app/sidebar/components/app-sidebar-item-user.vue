@@ -5,6 +5,7 @@
       :link="userAvatarLink"
       @click="onClickUserAvatar"
     />
+    <user-menu />
   </div>
 </template>
 
@@ -12,6 +13,7 @@
 import { defineComponent } from 'vue';
 import { mapGetters } from 'vuex';
 import UserAvatar from '@/user/components/user-avatar.vue';
+import UserMenu from '@/user/components/user-menu.vue';
 
 export default defineComponent({
   name: 'AppSidebarItemUser',
@@ -62,6 +64,7 @@ export default defineComponent({
    */
   components: {
     UserAvatar,
+    UserMenu,
   },
 });
 </script>
