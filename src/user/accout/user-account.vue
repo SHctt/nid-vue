@@ -2,12 +2,14 @@
   <div class="user-account">
     <user-account-set-avatar />
     <user-account-change-name />
+    <user-account-change-password />
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
 import UserAccountChangeName from './components/user-account-change-name.vue';
+import UserAccountChangePassword from './components/user-account-change-password.vue';
 import UserAccountSetAvatar from './components/user-account-set-avatar.vue';
 
 export default defineComponent({
@@ -52,7 +54,11 @@ export default defineComponent({
   /**
    * 使用组件
    */
-  components: { UserAccountSetAvatar, UserAccountChangeName },
+  components: {
+    UserAccountSetAvatar,
+    UserAccountChangeName,
+    UserAccountChangePassword,
+  },
 });
 </script>
 

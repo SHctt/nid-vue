@@ -1,15 +1,15 @@
 <template>
-  <div class="user-account-change-name">
+  <div class="user-account-change-password">
     <div class="form">
-      <h2 class="header">修改名字</h2>
-      <text-field v-model="newName" placeholder="输入新用户名" />
+      <h2 class="header">修改密码</h2>
+      <text-field v-model="newPassword" placeholder="新密码" type="password" />
       <text-field
-        v-if="newName"
+        v-if="newPassword"
         v-model="password"
         type="password"
-        placeholder="密码验证"
+        placeholder="请输入当前密码验证"
       />
-      <button-field text="提交" size="large" @click="onClickSubmitButton" />
+      <button-field text="确认" size="large" @click="onClickSubmitButton" />
     </div>
   </div>
 </template>
@@ -17,11 +17,11 @@
 <script>
 import ButtonField from '@/app/components/button-field.vue';
 import TextField from '@/app/components/text-field.vue';
-import { mapActions, mapGetters } from 'vuex';
 import { defineComponent } from 'vue';
+import { mapActions, mapGetters } from 'vuex';
 
 export default defineComponent({
-  name: 'UserAccountChangeName',
+  name: 'UserAccountChangePassword',
 
   /**
    * 属性
@@ -33,8 +33,8 @@ export default defineComponent({
    */
   data() {
     return {
-      newName: '',
       password: '',
+      newPassword: '',
     };
   },
 
@@ -64,26 +64,21 @@ export default defineComponent({
     }),
 
     async onClickSubmitButton() {
-      if (!this.newName) {
-        this.pushMessage({ content: '请输入用户名' });
+      if (!this.newPassword) {
+        this.pushMessage({ content: '请输入新密码！～' });
       }
 
       try {
         await this.updateUserAccount({
           userId: this.currentUser.id,
           body: {
-            update: {
-              name: this.newName,
-            },
-            validate: {
-              password: this.password,
-            },
+            update: { password: this.newPassword },
+            validate: { password: this.password },
           },
         });
 
-        this.pushMessage({ content: '用户名修改成功！～' });
-
-        this.newName = '';
+        this.pushMessage({ content: '修改密码成功！～' });
+        this.newPassword = '';
         this.password = '';
       } catch (error) {
         this.pushMessage({ content: error.data.message });
@@ -99,8 +94,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.user-account-change-name {
+.user-account-change-password {
   margin-top: 32px;
-  padding-bottom: 16px;
 }
 </style>
