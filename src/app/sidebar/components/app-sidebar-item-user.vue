@@ -1,6 +1,13 @@
 <template>
   <div class="app-sidebar-item user">
-    <user-avatar :user="currentUser" link="login" />
+    <user-avatar
+      :user="currentUser"
+      :link="userAvatarLink"
+      @click="onClickUserAvatar"
+    />
+    <transition name="user-menu">
+      <user-menu v-if="userMenuShow" @close="userMenuShow = false" />
+    </transition>
   </div>
 </template>
 
@@ -8,6 +15,7 @@
 import { defineComponent } from 'vue';
 import { mapGetters } from 'vuex';
 import UserAvatar from '@/user/components/user-avatar.vue';
+import UserMenu from '@/user/components/user-menu.vue';
 
 export default defineComponent({
   name: 'AppSidebarItemUser',
@@ -21,7 +29,9 @@ export default defineComponent({
    * 数据
    */
   data() {
-    return {};
+    return {
+      userMenuShow: true,
+    };
   },
 
   /**
@@ -31,6 +41,10 @@ export default defineComponent({
     ...mapGetters({
       currentUser: 'user/currentUser',
     }),
+
+    userAvatarLink() {
+      return this.currentUser ? null : 'login';
+    },
   },
 
   /**
@@ -43,13 +57,18 @@ export default defineComponent({
   /**
    * 组件方法
    */
-  methods: {},
+  methods: {
+    onClickUserAvatar() {
+      console.log(this.userAvatarLink);
+    },
+  },
 
   /**
    * 使用组件
    */
   components: {
     UserAvatar,
+    UserMenu,
   },
 });
 </script>

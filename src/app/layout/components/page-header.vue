@@ -1,5 +1,5 @@
 <template>
-  <div class="page-header">
+  <div :class="['page-header', { shadow }]">
     <div class="container">
       <app-toolbar />
     </div>
@@ -22,7 +22,7 @@ export default defineComponent({
    * 数据
    */
   data() {
-    return {};
+    return { shadow: false };
   },
 
   /**
@@ -34,13 +34,34 @@ export default defineComponent({
    * 已创建
    */
   created() {
-    //
+    //组件创建后，监听窗口的滚动事件
+    if (window) {
+      window.addEventListener('scroll', this.onScrollWindow);
+    }
+  },
+
+  /**
+   * 取消挂载
+   */
+  unmounted() {
+    //组件取消挂载后，取消监听窗口的滚动事件
+    if (window) {
+      window.removeEventListener('scroll', this.onScrollWindow);
+    }
   },
 
   /**
    * 组件方法
    */
-  methods: {},
+  methods: {
+    // 发生滚动事件
+    onScrollWindow() {
+      if (document) {
+        const { scrollTop } = document.documentElement;
+        this.shadow = scrollTop > 120 ? true : false;
+      }
+    },
+  },
 
   /**
    * 使用组件
