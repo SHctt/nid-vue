@@ -93,9 +93,8 @@ export default defineComponent({
    */
   methods: {
     addUserAccountMenu() {
-      if (this.menuItems.some(item => item.text !== '账户')) {
-        this.menuItems = [...this.menuItems, this.userAccountMenu];
-      }
+      if (this.menuItems.some(item => item.text === '账户')) return;
+      this.menuItems = [...this.menuItems, this.userAccountMenu];
     },
 
     deleteUserAccountMenu() {
