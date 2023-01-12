@@ -1,12 +1,14 @@
 <template>
   <div class="field">
-    <button
-      :text="text"
-      :class="['button', size, type]"
-      @click="$emit('click')"
-    >
-      {{ text }}
-    </button>
+    <label :for="name" :class="['button', 'outline', size]">{{ text }}</label>
+    <input
+      type="file"
+      name="name"
+      :id="name"
+      :accept="fileType"
+      class="input file hide"
+      @change="$emit('change', $event.target.files)"
+    />
   </div>
 </template>
 
@@ -14,7 +16,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'ButtonField',
+  name: 'FileField',
 
   /**
    * 属性
@@ -28,15 +30,20 @@ export default defineComponent({
       type: String,
     },
 
-    type: {
+    name: {
+      type: String,
+    },
+
+    fileType: {
       type: String,
     },
   },
 
   /**
-   * emits事件
+   * 事件
    */
-  emits: ['click'],
+  emits: ['change'],
+
   /**
    * 数据
    */

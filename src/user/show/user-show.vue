@@ -4,7 +4,7 @@
       <user-avatar :user="user" size="large" />
       <user-name :user="user" size="large" />
     </div>
-    <user-show-menu />
+    <user-show-menu :user="user" />
     <div class="user-show-body">
       <router-view></router-view>
     </div>
@@ -42,6 +42,13 @@ export default defineComponent({
     ...mapGetters({
       user: 'user/show/user',
     }),
+  },
+
+  watch: {
+    // 当前用户的变化
+    userId() {
+      this.getUserById(this.userId);
+    },
   },
 
   /**
