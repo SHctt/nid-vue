@@ -1,6 +1,10 @@
 <template>
   <div class="app-sidebar-item user">
-    <user-avatar :user="currentUser" link="login" />
+    <user-avatar
+      :user="currentUser"
+      :link="userAvatarLink"
+      @click="onClickUserAvatar"
+    />
   </div>
 </template>
 
@@ -31,6 +35,10 @@ export default defineComponent({
     ...mapGetters({
       currentUser: 'user/currentUser',
     }),
+
+    userAvatarLink() {
+      return this.currentUser ? null : 'login';
+    },
   },
 
   /**
@@ -43,7 +51,11 @@ export default defineComponent({
   /**
    * 组件方法
    */
-  methods: {},
+  methods: {
+    onClickUserAvatar() {
+      console.log(this.userAvatarLink);
+    },
+  },
 
   /**
    * 使用组件
