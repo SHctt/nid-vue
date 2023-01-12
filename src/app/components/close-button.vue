@@ -1,20 +1,26 @@
 <template>
-  <div class="user-menu">
-    <close-button />
+  <div :class="['close-button', align]" @click="$emit('click')">
+    <button class="button basic">
+      <app-icon name="close" />
+    </button>
   </div>
 </template>
 
 <script>
-import CloseButton from '@/app/components/close-button.vue';
 import { defineComponent } from 'vue';
+import AppIcon from './app-icon.vue';
 
 export default defineComponent({
-  name: 'UserMenu',
+  name: 'CloseButton',
 
+  /**
+   * 事件
+   */
+  emits: ['click'],
   /**
    * 属性
    */
-  props: {},
+  props: { align: { type: String } },
 
   /**
    * 数据
@@ -43,10 +49,10 @@ export default defineComponent({
   /**
    * 使用组件
    */
-  components: { CloseButton },
+  components: { AppIcon },
 });
 </script>
 
 <style scoped>
-@import './styles/user-menu.css';
+@import './styles/close-button.css';
 </style>
