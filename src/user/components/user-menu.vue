@@ -5,7 +5,9 @@
       <user-name :user="currentUser" v-if="currentUser" />
     </div>
     <div class="user-menu-footer">
-      <button class="button block">退出登陆</button>
+      <button class="button block" @click="onClickLogoutButton">
+        退出登陆
+      </button>
     </div>
   </div>
 </template>
@@ -14,7 +16,7 @@
 import CloseButton from '@/app/components/close-button.vue';
 import UserName from './user-name.vue';
 import { defineComponent } from 'vue';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default defineComponent({
   name: 'UserMenu',
@@ -69,10 +71,18 @@ export default defineComponent({
    * 组件方法
    */
   methods: {
+    ...mapActions({
+      logout: 'auth/logout',
+    }),
     onKeyUpWindow(event) {
       if (event.key === 'Escape') {
         this.$emit('close');
       }
+    },
+
+    onClickLogoutButton() {
+      this.$emit('close');
+      this.logout();
     },
   },
 
