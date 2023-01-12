@@ -12,3 +12,5 @@
 修正 1:修复定义了点击边栏用户 avatar 打开 user-menu
 修正 2:修正了 theme 样式中的背景错误
 修正 3:store-show.store 中的错误
+
+## 9.3-在 posts 文章列表数据的 getters 获取器里准备好图像文件地址

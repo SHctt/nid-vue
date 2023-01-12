@@ -2,6 +2,7 @@ import { Module } from 'vuex';
 import { apiHttpClient } from '@/app/app.service';
 import { RootState } from '@/app/app.store';
 import { User } from '@/user/show/user-show.store';
+import { API_BASE_URL } from '../../app/app.config';
 
 export interface PostListItem {
   id: number;
@@ -47,7 +48,30 @@ export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
     },
 
     posts(state) {
-      return state.posts;
+      return state.posts.map(post => {
+        let { file } = post;
+
+        if (file) {
+          const { id: fileId } = file;
+          const fileBaseURL = `${API_BASE_URL}/files/${fileId}/serve`;
+
+          file = {
+            ...file,
+            size: {
+              thumbnail: `${fileBaseURL}?size=thumbnail`,
+              medium: `${fileBaseURL}?size=medium`,
+              large: `${fileBaseURL}?size=large`,
+            },
+          };
+
+          post = {
+            ...post,
+            file,
+          };
+        }
+
+        return post;
+      });
     },
   },
 
