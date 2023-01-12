@@ -1,9 +1,9 @@
 .page.light {
   /* background */
-  --primary-backgroud: #ffffff;
-  --light-backgroud: #f8f8f8;
-  --page-header-backgroud: #ffffff;
-  --page-aside-backgroud: #ffffff;
+  --primary-background: #ffffff;
+  --light-background: #f8f8f8;
+  --page-header-background: #ffffff;
+  --page-aside-background: #ffffff;
 
   /* text-color */
   --primary-text-color: #000000;
@@ -15,18 +15,18 @@
   --highline-line-color: #000000;
 
   /* button */
-  --primary-button-backgroud: #000000;
+  --primary-button-background: #000000;
   --outline-button-color: #000000;
   --lowkey-button-backgroud: #e0e0e0;
   --lowkey-button-text-color: #5a5a5a;
 }
 
 .page.dark {
-  /* backgroud */
-  --primary-backgroud: #222222;
-  --light-backgroud: #1f1f1f;
-  --page-header-backgroud: #222222;
-  --page-aside-backgroud: #2e2e2e;
+  /* background */
+  --primary-background: #222222;
+  --light-background: #1f1f1f;
+  --page-header-background: #222222;
+  --page-aside-background: #2e2e2e;
 
   /* text-color */
   --primary-text-color: #b1b1b1;
@@ -38,7 +38,7 @@
   --highline-line-color: #555555;
 
   /* button */
-  --primary-button-backgroud: #555555;
+  --primary-button-background: #555555;
   --outline-button-color: #555555;
   --lowkey-button-backgroud: #3b3b3b;
   --lowkey-button-text-color: #898989;

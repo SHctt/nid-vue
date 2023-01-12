@@ -14,7 +14,7 @@
 
 .field > .input {
   color: var(--primary-text-color);
-  background: var(--primary-backgroud);
+  background: var(--primary-background);
   box-sizing: border-box;
   padding: 8px 0;
   margin-bottom: 8px;

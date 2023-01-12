@@ -1,9 +1,9 @@
 <template>
   <div :class="userNameClasses">
     <div class="user-name-text">
-      <router-link :to="userNameLinkTo" class="link">{{
-        user.name
-      }}</router-link>
+      <router-link :to="userNameLinkTo" class="link">
+        {{ user.name }}
+      </router-link>
     </div>
   </div>
 </template>

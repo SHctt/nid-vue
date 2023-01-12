@@ -17,7 +17,7 @@
   top: 0;
   z-index: 9999;
 
-  background: var(--page-header-backgroud);
+  background: var(--page-header-background);
   transition: box-shadow 1s;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .page-aside {
-  background: var(--page-aside-backgroud);
+  background: var(--page-aside-background);
   grid-area: a;
   display: flex;
   justify-content: center;
@@ -46,7 +46,7 @@
 }
 
 .page-main {
-  background: var(--primary-backgroud);
+  background: var(--primary-background);
   grid-area: m;
   padding: 32px;
 }

@@ -31,6 +31,10 @@ export const userShowStoreModule: Module<UserShowStoreState, RootState> = {
    * 获取器
    */
   getters: {
+    loading(state) {
+      return state.loading;
+    },
+
     // 用户数据获取器
     user(state) {
       return state.user;
@@ -65,7 +69,7 @@ export const userShowStoreModule: Module<UserShowStoreState, RootState> = {
 
         return response;
       } catch (error) {
-        commit('setLoading', true);
+        commit('setLoading', false);
 
         throw error.response;
       }

@@ -30,7 +30,7 @@ export default defineComponent({
    */
   data() {
     return {
-      userMenuShow: true,
+      userMenuShow: false,
     };
   },
 
@@ -59,7 +59,10 @@ export default defineComponent({
    */
   methods: {
     onClickUserAvatar() {
-      console.log(this.userAvatarLink);
+      if (this.currentUser) {
+        // 点击显示用户菜单
+        this.userMenuShow = !this.userMenuShow;
+      }
     },
   },
 
