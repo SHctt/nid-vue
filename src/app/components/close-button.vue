@@ -17,6 +17,7 @@ export default defineComponent({
    * 事件
    */
   emits: ['click'],
+
   /**
    * 属性
    */

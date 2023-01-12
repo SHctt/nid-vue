@@ -1,6 +1,6 @@
 <template>
   <div class="user-menu">
-    <close-button />
+    <close-button @click="$emit('close')" />
   </div>
 </template>
 
@@ -10,6 +10,11 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'UserMenu',
+
+  /**
+   * 事件
+   */
+  emits: ['close'],
 
   /**
    * 属性
@@ -32,13 +37,32 @@ export default defineComponent({
    * 已创建
    */
   created() {
-    //
+    //keyup事件
+    if (window) {
+      window.addEventListener('keyup', this.onKeyUpWindow);
+    }
+  },
+
+  /**
+   * 取消挂载
+   */
+  unmounted() {
+    //keyup事件
+    if (window) {
+      window.removeEventListener('keyup', this.onKeyUpWindow);
+    }
   },
 
   /**
    * 组件方法
    */
-  methods: {},
+  methods: {
+    onKeyUpWindow(event) {
+      if (event.key === 'Escape') {
+        this.$emit('close');
+      }
+    },
+  },
 
   /**
    * 使用组件

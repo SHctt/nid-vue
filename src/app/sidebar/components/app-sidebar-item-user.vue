@@ -6,7 +6,7 @@
       @click="onClickUserAvatar"
     />
     <transition name="user-menu">
-      <user-menu v-if="userMenuShow" />
+      <user-menu v-if="userMenuShow" @close="userMenuShow = false" />
     </transition>
   </div>
 </template>
@@ -29,7 +29,9 @@ export default defineComponent({
    * 数据
    */
   data() {
-    return {};
+    return {
+      userMenuShow: true,
+    };
   },
 
   /**
