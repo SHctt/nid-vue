@@ -66,6 +66,10 @@ export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
       return state.totalPage;
     },
 
+    hasMore(state) {
+      return state.totalPage - state.nextPage >= 0;
+    },
+
     posts(state) {
       return state.posts.map(post => {
         let { file } = post;
