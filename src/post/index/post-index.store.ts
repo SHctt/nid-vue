@@ -14,6 +14,7 @@ export interface PostListItem {
   file: {
     id: number;
     width: number;
+    height: number;
     orientation: string;
     size: {
       thumbnail: string;
@@ -52,11 +53,13 @@ export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
         let { file } = post;
 
         if (file) {
-          const { id: fileId } = file;
+          const { id: fileId, width, height } = file;
           const fileBaseURL = `${API_BASE_URL}/files/${fileId}/serve`;
+          const orientation = width > height ? 'horizontal' : 'portrait';
 
           file = {
             ...file,
+            orientation,
             size: {
               thumbnail: `${fileBaseURL}?size=thumbnail`,
               medium: `${fileBaseURL}?size=medium`,
