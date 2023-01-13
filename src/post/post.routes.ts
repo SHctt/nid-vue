@@ -17,6 +17,12 @@ const routes: Array<RouteRecordRaw> = [
     component: PostShow,
     props: true,
   },
+  {
+    name: 'postIndexPopular',
+    path: '/popular',
+    component: PostIndex,
+    props: true,
+  },
 ];
 
 /**
