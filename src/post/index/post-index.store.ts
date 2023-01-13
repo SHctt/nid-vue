@@ -1,8 +1,9 @@
 import { Module } from 'vuex';
-import { apiHttpClient } from '@/app/app.service';
+import { apiHttpClient, queryStringProcess } from '@/app/app.service';
 import { RootState } from '@/app/app.store';
 import { User } from '@/user/show/user-show.store';
-import { API_BASE_URL } from '../../app/app.config';
+import { API_BASE_URL, POSTS_PER_PAGE } from '@/app/app.config';
+import { StringifiableRecord } from 'query-string';
 
 export interface PostListItem {
   id: number;
@@ -34,6 +35,13 @@ export interface PostIndexStoreState {
   loading: boolean;
   posts: Array<PostListItem>;
   layout: string;
+  nextPage: number;
+  totalPage: number;
+  queryString: string;
+}
+
+export interface GetPostsOptions {
+  sort?: string;
 }
 
 export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
@@ -43,6 +51,9 @@ export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
     loading: false,
     posts: [],
     layout: '',
+    nextPage: 1,
+    totalPage: 1,
+    queryString: '',
   } as PostIndexStoreState,
 
   getters: {
@@ -52,6 +63,18 @@ export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
 
     layout(state) {
       return state.layout;
+    },
+
+    nextPage(state) {
+      return state.nextPage;
+    },
+
+    totalPage(state) {
+      return state.totalPage;
+    },
+
+    hasMore(state) {
+      return state.totalPage - state.nextPage >= 0;
     },
 
     posts(state) {
@@ -96,22 +119,76 @@ export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
     setPosts(state, data) {
       state.posts = data;
     },
+
+    setNextPage(state, data) {
+      if (data) {
+        state.nextPage = data;
+      } else {
+        state.nextPage++;
+      }
+    },
+
+    setTotalPage(state, data) {
+      state.totalPage = data;
+    },
+
+    setQueryString(state, data) {
+      state.queryString = data;
+    },
   },
 
   actions: {
-    async getPosts({ commit }) {
-      commit('setLoading', true);
+    async getPosts({ commit, state, dispatch }, options: GetPostsOptions = {}) {
+      const getPostsQueryString = await dispatch('getPostspreProcess', options);
 
       try {
-        const response = await apiHttpClient.get('/posts');
-        commit('setPosts', response.data);
-        commit('setLoading', false);
+        const response = await apiHttpClient.get(
+          `/posts?page=${state.nextPage}&${getPostsQueryString}`,
+        );
 
+        dispatch('getPostsPostProcess', response);
         return response;
       } catch (error) {
         commit('setLoading', false);
         throw error.response;
       }
+    },
+
+    getPostspreProcess({ commit, state }, options: GetPostsOptions) {
+      commit('setLoading', true);
+
+      const queryStringObject: StringifiableRecord = {
+        sort: options.sort,
+      };
+
+      const getPostsQueryString = queryStringProcess(queryStringObject);
+
+      if (state.queryString !== getPostsQueryString) {
+        commit('setNextPage', 1);
+      }
+
+      commit('setQueryString', getPostsQueryString);
+
+      return getPostsQueryString;
+    },
+
+    getPostsPostProcess({ commit, state }, response) {
+      if (state.nextPage === 1) {
+        commit('setPosts', response.data);
+      } else {
+        commit('setPosts', [...state.posts, ...response.data]);
+      }
+
+      commit('setLoading', false);
+
+      const total =
+        response.headers['X-Total-Count'] || response.headers['x-total-count'];
+
+      const totalPage = Math.ceil(total / POSTS_PER_PAGE);
+
+      commit('setTotalPage', totalPage);
+
+      commit('setNextPage');
     },
   },
 };
