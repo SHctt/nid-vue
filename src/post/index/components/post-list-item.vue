@@ -7,6 +7,7 @@
 
 <script>
 import { defineComponent } from 'vue';
+import { mapGetters } from 'vuex';
 import PostListItemContent from './post-list-item-content.vue';
 import postListItemMedia from './post-list-item-media.vue';
 
@@ -16,8 +17,11 @@ export default defineComponent({
   },
 
   computed: {
+    ...mapGetters({
+      layout: 'post/index/layout',
+    }),
     postListItemClasses() {
-      return ['post-list-item', this.item.file.orientation];
+      return ['post-list-item', this.item.file.orientation, this.layout];
     },
   },
 

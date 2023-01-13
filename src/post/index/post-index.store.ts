@@ -33,6 +33,7 @@ export interface PostListItem {
 export interface PostIndexStoreState {
   loading: boolean;
   posts: Array<PostListItem>;
+  layout: string;
 }
 
 export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
@@ -41,10 +42,15 @@ export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
   state: {
     loading: false,
     posts: [],
+    layout: '',
   } as PostIndexStoreState,
 
   getters: {
     loading(state) {
+      return state.loading;
+    },
+
+    layout(state) {
       return state.loading;
     },
 
@@ -81,6 +87,10 @@ export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
   mutations: {
     setLoading(state, data) {
       state.loading = data;
+    },
+
+    setLayout(state, data) {
+      state.layout = data;
     },
 
     setPosts(state, data) {
