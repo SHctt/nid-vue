@@ -80,7 +80,7 @@ export default defineComponent({
           clientHeight,
         } = document.documentElement;
 
-        const height = scrollHeight + scrollTop + 200;
+        const height = scrollHeight + clientHeight + 200;
         const touchDown = scrollHeight - height < 0;
         const scrollDown = scrollTop > this.prevScrollTop;
         if (touchDown && scrollDown && !this.loading && this.hasMore) {
