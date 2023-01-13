@@ -1,8 +1,9 @@
 import { Module } from 'vuex';
-import { apiHttpClient } from '@/app/app.service';
+import { apiHttpClient, queryStringProcess } from '@/app/app.service';
 import { RootState } from '@/app/app.store';
 import { User } from '@/user/show/user-show.store';
 import { API_BASE_URL, POSTS_PER_PAGE } from '@/app/app.config';
+import { StringifiableRecord } from 'query-string';
 
 export interface PostListItem {
   id: number;
@@ -36,6 +37,7 @@ export interface PostIndexStoreState {
   layout: string;
   nextPage: number;
   totalPage: number;
+  queryString: string;
 }
 
 export interface GetPostsOptions {
@@ -51,6 +53,7 @@ export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
     layout: '',
     nextPage: 1,
     totalPage: 1,
+    queryString: '',
   } as PostIndexStoreState,
 
   getters: {
@@ -113,6 +116,10 @@ export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
       state.layout = data;
     },
 
+    setPosts(state, data) {
+      state.posts = data;
+    },
+
     setNextPage(state, data) {
       if (data) {
         state.nextPage = data;
@@ -125,18 +132,18 @@ export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
       state.totalPage = data;
     },
 
-    setPosts(state, data) {
-      state.posts = data;
+    setQueryString(state, data) {
+      state.queryString = data;
     },
   },
 
   actions: {
     async getPosts({ commit, state, dispatch }, options: GetPostsOptions = {}) {
-      commit('setLoading', true);
+      const getPostsQueryString = await dispatch('getPostspreProcess', options);
 
       try {
         const response = await apiHttpClient.get(
-          `/posts?page=${state.nextPage}&sort=${options.sort}`,
+          `/posts?page=${state.nextPage}&${getPostsQueryString}`,
         );
 
         dispatch('getPostsPostProcess', response);
@@ -145,6 +152,24 @@ export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
         commit('setLoading', false);
         throw error.response;
       }
+    },
+
+    getPostspreProcess({ commit, state }, options: GetPostsOptions) {
+      commit('setLoading', true);
+
+      const queryStringObject: StringifiableRecord = {
+        sort: options.sort,
+      };
+
+      const getPostsQueryString = queryStringProcess(queryStringObject);
+
+      if (state.queryString !== getPostsQueryString) {
+        commit('setNextPage', 1);
+      }
+
+      commit('setQueryString', getPostsQueryString);
+
+      return getPostsQueryString;
     },
 
     getPostsPostProcess({ commit, state }, response) {
