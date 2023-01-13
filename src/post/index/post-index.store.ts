@@ -51,7 +51,7 @@ export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
     },
 
     layout(state) {
-      return state.loading;
+      return state.layout;
     },
 
     posts(state) {
