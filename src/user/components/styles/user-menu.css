@@ -3,7 +3,7 @@
   top: 0;
   right: -270px;
   box-sizing: border-box;
-  background: var(--primary-backgroud);
+  background: var(--primary-background);
   font-size: 16px;
   font-weight: 300;
   min-width: 220px;
@@ -23,7 +23,7 @@
   transform: translateX(0);
 }
 .user-menu-leave-active {
-  transition: 0.3;
+  transition: 0.3s;
 }
 .user-menu-leave-to {
   opacity: 0;
@@ -50,4 +50,23 @@
 .user-menu-footer {
   padding-top: 16px;
   padding-bottom: 24px;
+}
+
+.user-menu-items {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line-color);
+}
+
+.user-menu-item > .link {
+  font-weight: normal;
+  display: block;
+  color: var(--secondary-text-color);
+  padding: 8px 0;
+  transition: 0.1s;
+}
+
+.user-menu-item > .link:hover {
+  color: var(--primary-text-color);
+  background: var(--light-background);
+  padding: 8px;
 }

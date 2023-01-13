@@ -1,0 +1,9 @@
+.post-list-item {
+  display: grid;
+  grid-template-rows: 1fr 60px;
+}
+
+.post-list-item.portrait {
+  grid-row-end: span 2;
+  grid-row-start: auto;
+}

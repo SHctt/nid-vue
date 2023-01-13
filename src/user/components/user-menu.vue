@@ -2,7 +2,23 @@
   <div class="user-menu">
     <close-button @click="$emit('close')" />
     <div class="user-menu-header">
-      <user-name :user="currentUser" v-if="currentUser" />
+      <user-name :user="currentUser" />
+    </div>
+    <div
+      class="user-menu-items"
+      v-for="(menuItems, menuItemIndex) in menu"
+      :key="menuItemIndex"
+    >
+      <div
+        class="user-menu-item"
+        v-for="(item, index) in menuItems"
+        :key="index"
+        @click="$emit('close')"
+      >
+        <router-link class="link" :to="item.linkTo">
+          {{ item.text }}
+        </router-link>
+      </div>
     </div>
     <div class="user-menu-footer">
       <button class="button block" @click="onClickLogoutButton">
@@ -45,6 +61,36 @@ export default defineComponent({
     ...mapGetters({
       currentUser: 'user/currentUser',
     }),
+
+    menu() {
+      return [
+        [
+          {
+            linkTo: {
+              name: 'userPosts',
+              params: { userId: this.currentUser.id },
+            },
+            text: '作品',
+          },
+          {
+            linkTo: {
+              name: 'userComments',
+              params: { userId: this.currentUser.id },
+            },
+            text: '评论',
+          },
+        ],
+        [
+          {
+            linkTo: {
+              name: 'userAccount',
+              params: { userId: this.currentUser.id },
+            },
+            text: '账户',
+          },
+        ],
+      ];
+    },
   },
 
   /**

@@ -1,6 +1,7 @@
 <template>
-  <div v-if="loading">加载中...</div>
-  <PostListItem v-for="post in posts" :item="post" :key="post.id" />
+  <div class="post-list">
+    <PostListItem v-for="post in posts" :item="post" :key="post.id" />
+  </div>
 </template>
 
 <script>
@@ -10,7 +11,8 @@ import PostListItem from './post-list-item';
 
 export default defineComponent({
   async created() {
-    this.getPosts();
+    await this.getPosts();
+    console.log(this.getPosts);
   },
 
   computed: {
@@ -31,3 +33,7 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+@import './styles/post-list.css';
+</style>

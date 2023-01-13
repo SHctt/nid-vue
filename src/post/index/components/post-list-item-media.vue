@@ -1,10 +1,8 @@
 <template>
-  <div :class="userNameClasses">
-    <div class="user-name-text">
-      <router-link :to="userNameLinkTo" class="link">
-        {{ user.name }}
-      </router-link>
-    </div>
+  <div class="post-list-item-media">
+    <router-link class="link" :to="itemLinkTo">
+      <img class="image" :src="item.file.size.medium" />
+    </router-link>
   </div>
 </template>
 
@@ -12,18 +10,14 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'UserName',
+  name: 'PostListItemMedia',
 
   /**
    * 属性
    */
   props: {
-    user: {
+    item: {
       type: Object,
-    },
-
-    size: {
-      type: String,
     },
   },
 
@@ -38,15 +32,8 @@ export default defineComponent({
    * 计算属性
    */
   computed: {
-    userNameClasses() {
-      return ['user-name', this.size];
-    },
-
-    userNameLinkTo() {
-      return {
-        name: 'userPosts',
-        params: { userId: this.user.id },
-      };
+    itemLinkTo() {
+      return { name: 'postShow', params: { postId: this.item.id } };
     },
   },
 
@@ -70,5 +57,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-@import './styles/user-name.css';
+@import './styles/post-list-item-media.css';
 </style>
