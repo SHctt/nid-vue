@@ -13,7 +13,7 @@ export default {
   components: { AppLayout },
   data() {
     return {
-      name: '无限滚动（滚动翻页）',
+      name: '文章内容',
       layout: 'AppLayout',
     };
   },
