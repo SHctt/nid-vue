@@ -21,7 +21,7 @@ export default defineComponent({
     },
 
     filter: {
-      type: String,
+      type: Object,
     },
   },
 

@@ -90,7 +90,7 @@ export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
       return state.totalPage - state.nextPage >= 0;
     },
 
-    filter(state) {
+    filterItems(state) {
       const items: Array<FilterItem> = [];
 
       if (state.filter) {
