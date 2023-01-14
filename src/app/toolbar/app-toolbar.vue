@@ -1,8 +1,10 @@
 <template>
   <div class="app-toolbar">
-    <div class="app-toolbar layout" v-if="showPostListLayoutSwitcher">
-      <post-list-layout-switcher />
-    </div>
+    <transition name="app-toolbar-item-layout">
+      <div class="app-toolbar layout" v-if="showPostListLayoutSwitcher">
+        <post-list-layout-switcher />
+      </div>
+    </transition>
     <app-toolbar-item-search />
   </div>
 </template>
