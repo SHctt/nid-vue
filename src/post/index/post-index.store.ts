@@ -4,7 +4,7 @@ import { RootState } from '@/app/app.store';
 import { User } from '@/user/show/user-show.store';
 import { POSTS_PER_PAGE } from '@/app/app.config';
 import { StringifiableRecord } from 'query-string';
-import { postFileProcess } from '@/post/post.service';
+import { postFileProcess, filterProcess } from '@/post/post.service';
 
 export interface PostListItem {
   id: number;
@@ -39,10 +39,12 @@ export interface PostIndexStoreState {
   nextPage: number;
   totalPage: number;
   queryString: string;
+  filter: { [name: string]: string } | null;
 }
 
 export interface GetPostsOptions {
   sort?: string;
+  filter: { [name: string]: string };
 }
 
 export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
@@ -55,6 +57,7 @@ export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
     nextPage: 1,
     totalPage: 1,
     queryString: '',
+    filter: null,
   } as PostIndexStoreState,
 
   getters: {
@@ -111,10 +114,15 @@ export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
     setQueryString(state, data) {
       state.queryString = data;
     },
+
+    setFilter(state, data) {
+      const filter = filterProcess(data);
+      state.filter = filter;
+    },
   },
 
   actions: {
-    async getPosts({ commit, state, dispatch }, options: GetPostsOptions = {}) {
+    async getPosts({ commit, state, dispatch }, options: GetPostsOptions) {
       const getPostsQueryString = await dispatch('getPostspreProcess', options);
 
       try {
@@ -132,9 +140,11 @@ export const postIndexStoreModule: Module<PostIndexStoreState, RootState> = {
 
     getPostspreProcess({ commit, state }, options: GetPostsOptions) {
       commit('setLoading', true);
+      commit('setFilter', options.filter);
 
       const queryStringObject: StringifiableRecord = {
         sort: options.sort,
+        ...state.filter,
       };
 
       const getPostsQueryString = queryStringProcess(queryStringObject);

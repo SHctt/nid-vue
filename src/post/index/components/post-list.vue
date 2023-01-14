@@ -26,7 +26,7 @@ export default defineComponent({
   },
 
   async created() {
-    await this.getPosts({ sort: this.sort });
+    await this.getPosts({ sort: this.sort, filter: this.filter });
 
     // 文章列表layout
     const layout = getStorage('post-list-layout');
@@ -90,7 +90,7 @@ export default defineComponent({
         const touchDown = scrollHeight - height < 0;
         const scrollDown = scrollTop > this.prevScrollTop;
         if (touchDown && scrollDown && !this.loading && this.hasMore) {
-          this.getPosts({ sort: this.sort });
+          this.getPosts({ sort: this.sort, filter: this.filter });
         }
         this.prevScrollTop = scrollTop;
       }
