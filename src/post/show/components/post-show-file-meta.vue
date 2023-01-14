@@ -1,10 +1,13 @@
 <template>
-  <div>PostShowFileMeta</div>
+  <div class="post-show-file-meta">
+    <post-show-file-meta-kit :kit="kit" />
+  </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
 import { mapGetters, mapActions } from 'vuex';
+import PostShowFileMetaKit from './post-show-file-meta-kit.vue';
 
 export default defineComponent({
   name: 'PostShowFileMeta',
@@ -31,7 +34,7 @@ export default defineComponent({
   computed: {
     ...mapGetters({
       loading: 'file/show/loading',
-      kit: 'file/show/loading',
+      kit: 'file/show/kit',
       specs: 'file/show/specs',
     }),
   },
@@ -56,7 +59,7 @@ export default defineComponent({
   /**
    * 使用组件
    */
-  components: {},
+  components: { PostShowFileMetaKit },
 });
 </script>
 
