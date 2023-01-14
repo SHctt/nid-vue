@@ -3,7 +3,10 @@
     <post-show-header :post="post" />
     <post-show-content :post="post" />
     <post-show-media :post="post" @click="onClickPostShowMedia" />
-    <post-show-action :post="post" />
+    <div class="section meta actions">
+      <post-show-file-meta :post="post" />
+      <post-show-action :post="post" />
+    </div>
   </div>
 </template>
 
@@ -15,6 +18,7 @@ import { getStorage } from '@/app/app.service';
 import PostShowHeader from './components/post-show-header.vue';
 import PostShowContent from './components/post-show-content.vue';
 import PostShowAction from './components/post-show-action.vue';
+import PostShowFileMeta from './components/post-show-file-meta.vue';
 
 export default defineComponent({
   components: {
@@ -22,6 +26,7 @@ export default defineComponent({
     PostShowHeader,
     PostShowContent,
     PostShowAction,
+    PostShowFileMeta,
   },
   title() {
     if (this.showPost) {

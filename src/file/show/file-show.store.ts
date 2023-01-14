@@ -138,7 +138,7 @@ export const fileShowStoreModule: Module<FileShowStoreState, RootState> = {
    * 动作
    */
   actions: {
-    async show({ commit }, fieldId) {
+    async getFileById({ commit }, fieldId) {
       commit('setLoading', true);
 
       try {
