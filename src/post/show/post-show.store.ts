@@ -1,7 +1,7 @@
 import { Module } from 'vuex';
-import { apiHttpClient } from '../../app/app.service';
-import { RootState } from '../../app/app.store';
-import { User } from '../../user/show/user-show.store';
+import { apiHttpClient } from '@/app/app.service';
+import { RootState } from '@/app/app.store';
+import { User } from '@/user/show/user-show.store';
 
 export default interface Post {
   id: number;
