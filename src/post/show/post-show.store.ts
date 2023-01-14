@@ -2,7 +2,7 @@ import { Module } from 'vuex';
 import { apiHttpClient } from '@/app/app.service';
 import { RootState } from '@/app/app.store';
 import { User } from '@/user/show/user-show.store';
-import { postFileProcess } from '../post.service';
+import { postFileProcess } from '@/post/post.service';
 
 export default interface Post {
   id: number;
@@ -33,6 +33,7 @@ export default interface Post {
 export interface PostShowStoreState {
   loading: boolean;
   post: Post;
+  layout: string;
 }
 
 export const postShowStoreModule: Module<PostShowStoreState, RootState> = {
@@ -41,6 +42,7 @@ export const postShowStoreModule: Module<PostShowStoreState, RootState> = {
   state: {
     loading: false,
     post: {},
+    layout: '',
   } as PostShowStoreState,
 
   getters: {
@@ -53,6 +55,10 @@ export const postShowStoreModule: Module<PostShowStoreState, RootState> = {
         ? postFileProcess(state.post)
         : null;
     },
+
+    layout(state) {
+      return state.layout;
+    },
   },
 
   mutations: {
@@ -62,6 +68,10 @@ export const postShowStoreModule: Module<PostShowStoreState, RootState> = {
 
     setPost(state, data) {
       state.post = data;
+    },
+
+    setLayout(state, data) {
+      state.layout = data;
     },
   },
 
