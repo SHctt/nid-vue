@@ -15,10 +15,17 @@ import PostListItem from './post-list-item';
 import PostListItemSkeleton from './post-list-item-skeleton.vue';
 
 export default defineComponent({
-  async created() {
-    this.sort =
-      this.$route.name === 'postIndexPopular' ? 'most_comments' : 'latest';
+  props: {
+    sort: {
+      type: String,
+    },
 
+    filter: {
+      type: String,
+    },
+  },
+
+  async created() {
     await this.getPosts({ sort: this.sort });
 
     // 文章列表layout
@@ -59,7 +66,6 @@ export default defineComponent({
   data() {
     return {
       prevScrollTop: 0,
-      sort: '',
     };
   },
 

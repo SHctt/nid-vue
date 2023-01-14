@@ -1,5 +1,5 @@
 <template>
-  <PostList />
+  <PostList :sort="sort" :filter="filter" />
 </template>
 
 <script>
@@ -17,6 +17,16 @@ export default defineComponent({
     }
 
     return title;
+  },
+
+  props: {
+    sort: {
+      type: String,
+    },
+
+    filter: {
+      type: String,
+    },
   },
 
   components: {
