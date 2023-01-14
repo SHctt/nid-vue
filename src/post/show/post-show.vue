@@ -1,12 +1,13 @@
 <template>
   <div :class="postShowClasses" v-if="showPost">
-    <post-show-header :post="post" />
-    <post-show-content :post="post" />
     <post-show-media :post="post" @click="onClickPostShowMedia" />
     <div class="section meta actions">
       <post-show-file-meta :post="post" />
       <post-show-action :post="post" />
     </div>
+    <post-show-header :post="post" />
+    <post-show-content :post="post" />
+    <post-show-tags v-if="post.tags" :tags="post.tags" />
   </div>
 </template>
 
@@ -19,6 +20,7 @@ import PostShowHeader from './components/post-show-header.vue';
 import PostShowContent from './components/post-show-content.vue';
 import PostShowAction from './components/post-show-action.vue';
 import PostShowFileMeta from './components/post-show-file-meta.vue';
+import PostShowTags from './components/post-show-tags.vue';
 
 export default defineComponent({
   components: {
@@ -27,6 +29,7 @@ export default defineComponent({
     PostShowContent,
     PostShowAction,
     PostShowFileMeta,
+    PostShowTags,
   },
   title() {
     if (this.showPost) {
