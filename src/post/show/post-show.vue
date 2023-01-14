@@ -1,6 +1,7 @@
 <template>
   <div :class="postShowClasses" v-if="showPost">
     <post-show-header :post="post" />
+    <post-show-content :post="post" />
     <post-show-media :post="post" @click="onClickPostShowMedia" />
   </div>
 </template>
@@ -11,9 +12,10 @@ import { defineComponent } from 'vue';
 import postShowMedia from './components/post-show-media.vue';
 import { getStorage } from '@/app/app.service';
 import PostShowHeader from './components/post-show-header.vue';
+import PostShowContent from './components/post-show-content.vue';
 
 export default defineComponent({
-  components: { postShowMedia, PostShowHeader },
+  components: { postShowMedia, PostShowHeader, PostShowContent },
   title() {
     if (this.showPost) {
       return this.post.title;
