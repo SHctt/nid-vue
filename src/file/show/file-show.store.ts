@@ -85,6 +85,40 @@ export const fileShowStoreModule: Module<FileShowStoreState, RootState> = {
 
       return kit.filter(item => item.value !== '');
     },
+
+    specs(state) {
+      let specs: Array<MetaItem> = [];
+
+      if (state.fileMetaData) {
+        const {
+          FocalLength,
+          FNumber,
+          ExposureTime,
+          IOS,
+        } = state.fileMetaData.metadata;
+
+        specs = [
+          {
+            title: '焦距',
+            value: FocalLength ? `${FocalLength}` : '',
+          },
+          {
+            title: '光圈',
+            value: FNumber ? `${FNumber}` : '',
+          },
+          {
+            title: '曝光',
+            value: ExposureTime ? `${ExposureTime}` : '',
+          },
+          {
+            title: '感光',
+            value: IOS ? `${IOS}` : '',
+          },
+        ];
+      }
+
+      return specs.filter(item => item.value !== '');
+    },
   },
 
   /**
