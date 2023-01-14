@@ -1,17 +1,16 @@
 <template>
   <div v-if="showPost">
-    <h1>{{ post.title }}</h1>
-    <div>
-      {{ post.content }} - <small>{{ post.user.name }}</small>
-    </div>
+    <post-show-media :post="post" />
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import { defineComponent } from 'vue';
+import postShowMedia from './components/post-show-media.vue';
 
 export default defineComponent({
+  components: { postShowMedia },
   title() {
     if (this.showPost) {
       return this.post.title;
