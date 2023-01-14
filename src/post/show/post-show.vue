@@ -3,6 +3,7 @@
     <post-show-header :post="post" />
     <post-show-content :post="post" />
     <post-show-media :post="post" @click="onClickPostShowMedia" />
+    <post-show-action :post="post" />
   </div>
 </template>
 
@@ -13,9 +14,15 @@ import postShowMedia from './components/post-show-media.vue';
 import { getStorage } from '@/app/app.service';
 import PostShowHeader from './components/post-show-header.vue';
 import PostShowContent from './components/post-show-content.vue';
+import PostShowAction from './components/post-show-action.vue';
 
 export default defineComponent({
-  components: { postShowMedia, PostShowHeader, PostShowContent },
+  components: {
+    postShowMedia,
+    PostShowHeader,
+    PostShowContent,
+    PostShowAction,
+  },
   title() {
     if (this.showPost) {
       return this.post.title;
