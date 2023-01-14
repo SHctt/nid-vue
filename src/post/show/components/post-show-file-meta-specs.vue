@@ -1,12 +1,12 @@
 <template>
-  <div class="post-show-file-meta-kit">
+  <div class="post-show-file-meta-specs">
     <div class="icon">
-      <app-icon name="camera_alt" />
+      <app-icon name="camera" />
     </div>
     <div class="content">
-      <div class="kit" v-for="(item, index) in kit" :key="index">
-        <div class="title">{{ item.title }}:</div>
-        <div class="value">{{ item.value }}</div>
+      <div class="spec" v-for="(spec, index) in specs" :key="index">
+        <div class="title">{{ spec.title }}-</div>
+        <div class="value">{{ spec.value }}</div>
       </div>
     </div>
   </div>
@@ -17,13 +17,13 @@ import AppIcon from '@/app/components/app-icon.vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'PostShowFileMetaKit',
+  name: 'PostShowFileMetaSpecs',
 
   /**
    * 属性
    */
   props: {
-    kit: {
+    specs: {
       type: Array,
     },
   },
@@ -60,5 +60,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-@import './styles/post-show-file-meta-kit.css';
+@import './styles/post-show-file-meta-specs.css';
 </style>
