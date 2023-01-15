@@ -28,8 +28,8 @@ export const appToolbarStoreModule: Module<AppToolbarStoreState, RootState> = {
       return state.showPostListLayoutSwitcher;
     },
 
-    showPostShowNavigator(state, _, RootState) {
-      return state.showPostShowNavigator && RootState.post.index.posts.length;
+    showPostShowNavigator(state, _, rootState) {
+      return state.showPostShowNavigator && rootState.post.index.posts.length;
     },
   },
 

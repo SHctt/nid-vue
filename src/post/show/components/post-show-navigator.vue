@@ -12,6 +12,7 @@
 <script>
 import AppIcon from '@/app/components/app-icon.vue';
 import { defineComponent } from 'vue';
+import { mapActions } from 'vuex';
 
 export default defineComponent({
   name: 'PostShowNavigator',
@@ -44,12 +45,17 @@ export default defineComponent({
    * 组件方法
    */
   methods: {
+    ...mapActions({
+      goGetPrevPost: 'post/show/goGetPrevPost',
+      goGetNextPost: 'post/show/goGetNextPost',
+    }),
+
     onClickBackButton() {
-      console.log('back');
+      this.goGetPrevPost();
     },
 
     onClickForwardButton() {
-      console.log('forward');
+      this.goGetNextPost();
     },
   },
 
