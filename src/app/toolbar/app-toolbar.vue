@@ -5,9 +5,11 @@
         <post-list-layout-switcher />
       </div>
     </transition>
-    <div class="app-toolbar-item navigator" v-if="showPostShowNavigator">
-      <post-show-navigator />
-    </div>
+    <transition name="app-toolbar-item-navigator">
+      <div class="app-toolbar-item navigator" v-if="showPostShowNavigator">
+        <post-show-navigator />
+      </div>
+    </transition>
     <app-toolbar-item-search />
   </div>
 </template>
