@@ -13,7 +13,7 @@ export default {
   components: { AppLayout },
   data() {
     return {
-      name: '内容列表过滤',
+      name: '内容导航组件',
       layout: 'AppLayout',
     };
   },
