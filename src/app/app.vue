@@ -13,7 +13,7 @@ export default {
   components: { AppLayout },
   data() {
     return {
-      name: '页面侧面板',
+      name: '评论列表',
       layout: 'AppLayout',
     };
   },
