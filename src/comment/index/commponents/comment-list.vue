@@ -1,15 +1,12 @@
 <template>
-  <div class="comment-index">
-    <comment-list />
-  </div>
+  <div class="comment-list">comment-list</div>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
-import CommentList from './commponents/comment-list.vue';
 
 export default defineComponent({
-  name: 'CommentIndex',
+  name: 'CommentList',
 
   /**
    * 属性
@@ -43,10 +40,10 @@ export default defineComponent({
   /**
    * 使用组件
    */
-  components: { CommentList },
+  components: {},
 });
 </script>
 
 <style scoped>
-@import './styles/comment-index.css';
+@import './styles/comment-list.css';
 </style>
