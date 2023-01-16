@@ -12,7 +12,11 @@ export default defineComponent({
   /**
    * 属性
    */
-  props: {},
+  props: {
+    filter: {
+      type: Object,
+    },
+  },
 
   /**
    * 数据
@@ -37,9 +41,15 @@ export default defineComponent({
   async created() {
     //
     await this.getComments();
-    console.log(this.comments);
+    // console.log(this.comments);
+    console.log(this.filter);
   },
 
+  watch: {
+    filter() {
+      console.log(this.filter);
+    },
+  },
   /**
    * 组件方法
    */

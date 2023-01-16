@@ -4,6 +4,7 @@ import { RootState } from '@/app/app.store';
 export interface LayoutStoreState {
   theme: string;
   sideSheetComponent: string;
+  sideSheetProps: any;
 }
 
 export const layoutStoreModule: Module<LayoutStoreState, RootState> = {
@@ -31,6 +32,10 @@ export const layoutStoreModule: Module<LayoutStoreState, RootState> = {
     sideSheetComponent(state) {
       return state.sideSheetComponent;
     },
+
+    sideSheetProps(state) {
+      return state.sideSheetProps;
+    },
   },
 
   /**
@@ -45,8 +50,13 @@ export const layoutStoreModule: Module<LayoutStoreState, RootState> = {
       state.sideSheetComponent = data;
     },
 
+    setSideSheetProps(state, data) {
+      state.sideSheetProps = data;
+    },
+
     resetSideSheet(state) {
       state.sideSheetComponent = '';
+      state.sideSheetProps = null;
     },
   },
 
