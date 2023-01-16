@@ -4,6 +4,12 @@
   cursor: pointer;
   width: 100%;
 }
+
+.user-avatar.loading {
+  background: var(--skeleton-background);
+  border-radius: 50%;
+}
+
 .user-avatar > .link > .image {
   border-radius: 50%;
   cursor: pointer;

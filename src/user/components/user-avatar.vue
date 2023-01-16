@@ -1,7 +1,7 @@
 <template>
   <div :class="userAvatarClasses">
     <router-link class="link" :to="userAvatarLinkTo" v-if="link">
-      <img class="image" :src="userAvatarSource" />
+      <img class="image" :src="userAvatarSource" @load="onLoadImg" />
     </router-link>
     <img v-else class="image" :src="userAvatarSource" />
   </div>
@@ -37,7 +37,9 @@ export default defineComponent({
    * 数据
    */
   data() {
-    return {};
+    return {
+      loading: true,
+    };
   },
 
   /**
@@ -54,6 +56,7 @@ export default defineComponent({
         'user-avatar',
         this.size,
         { fade: !this.isLoggedIn && !this.user }, //未登陆时淡化头像样式
+        { loading: this.loading },
       ];
     },
 
@@ -104,7 +107,11 @@ export default defineComponent({
   /**
    * 组件方法
    */
-  methods: {},
+  methods: {
+    onLoadImg() {
+      this.loading = false;
+    },
+  },
 
   /**
    * 使用组件
