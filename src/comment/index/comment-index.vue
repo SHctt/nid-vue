@@ -1,15 +1,12 @@
 <template>
-  <div class="comment-side-sheet">
-    <comment-index />
-  </div>
+  <div class="comment-index">comment-index</div>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
-import CommentIndex from '../index/comment-index.vue';
 
 export default defineComponent({
-  name: 'CommentSideSheet',
+  name: 'CommentIndex',
 
   /**
    * 属性
@@ -43,10 +40,10 @@ export default defineComponent({
   /**
    * 使用组件
    */
-  components: { CommentIndex },
+  components: {},
 });
 </script>
 
 <style scoped>
-@import './styles/comment-side-sheet.css';
+@import './styles/comment-index.css';
 </style>
