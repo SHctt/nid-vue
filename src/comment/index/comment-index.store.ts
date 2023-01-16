@@ -17,11 +17,11 @@ export interface CommentListItem {
   totilReplies: number | null;
 }
 
-export type comments = Array<CommentListItem>;
+export type Comments = Array<CommentListItem>;
 
 export interface CommentIndexStoreState {
   loading: boolean;
-  comments: comments | null;
+  comments: Comments;
 }
 
 export const commentIndexStoreModule: Module<
@@ -38,7 +38,7 @@ export const commentIndexStoreModule: Module<
    */
   state: {
     loading: false,
-    comments: null,
+    comments: [],
   } as CommentIndexStoreState,
 
   /**
@@ -62,7 +62,7 @@ export const commentIndexStoreModule: Module<
       state.loading = data;
     },
 
-    setcommentListItem(state, data) {
+    setComments(state, data) {
       state.comments = data;
     },
   },
@@ -75,8 +75,8 @@ export const commentIndexStoreModule: Module<
       commit('setLoading', true);
 
       try {
-        const response = await apiHttpClient.get('comment');
-        commit('setCommentListItem', response.data);
+        const response = await apiHttpClient.get(`comments`);
+        commit('setComments', response.data);
         commit('setLoading', false);
 
         return response;

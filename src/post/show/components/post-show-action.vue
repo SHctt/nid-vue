@@ -85,7 +85,7 @@ export default defineComponent({
         this.setSideSheetComponent('CommentSideSheet');
 
         this.setSideSheetProps({
-          filter: this.post.id,
+          post: this.post.id,
         });
       }
     },

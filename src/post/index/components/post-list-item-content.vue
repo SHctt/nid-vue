@@ -24,7 +24,9 @@
       </div>
       <div class="action">
         <div class="icon">
-          <app-icon name="comment" />
+          <button class="button basic" @click="onClickCommentButton">
+            <app-icon name="comment" />
+          </button>
         </div>
         <div class="text">
           {{ item.totalComments }}
@@ -39,6 +41,7 @@ import AppIcon from '@/app/components/app-icon.vue';
 import UserAvatar from '@/user/components/user-avatar.vue';
 import UserName from '@/user/components/user-name.vue';
 import { defineComponent } from 'vue';
+import { mapMutations } from 'vuex';
 
 export default defineComponent({
   name: 'PostListItemContent',
@@ -78,7 +81,21 @@ export default defineComponent({
   /**
    * 组件方法
    */
-  methods: {},
+  methods: {
+    ...mapMutations({
+      setSideSheetComponent: 'layout/setSideSheetComponent',
+      setSideSheetProps: 'layout/setSideSheetProps',
+    }),
+    onClickCommentButton() {
+      this.setSideSheetComponent('CommentSideSheet');
+
+      this.setSideSheetProps({
+        filter: {
+          post: this.item.id,
+        },
+      });
+    },
+  },
 
   /**
    * 使用组件
