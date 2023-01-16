@@ -19,6 +19,11 @@ export default defineComponent({
     item: {
       type: Object,
     },
+
+    aspectRitio: {
+      type: String,
+      default: '3-2',
+    },
   },
 
   /**
@@ -34,6 +39,14 @@ export default defineComponent({
   computed: {
     itemLinkTo() {
       return { name: 'postShow', params: { postId: this.item.id } };
+    },
+
+    postListItemMediaClasses() {
+      return [
+        'post-list-item-media',
+        this.item.file.orientation,
+        `aspect-ratio-${this.aspectRitio}`,
+      ];
     },
   },
 
