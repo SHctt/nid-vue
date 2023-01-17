@@ -1,0 +1,8 @@
+.comment-list-user {
+  display: flex;
+  margin-bottom: 32px;
+}
+
+.comment-list-user > .thumbnail {
+  margin-right: 16px;
+}
