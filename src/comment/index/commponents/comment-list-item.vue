@@ -5,6 +5,7 @@
     </div>
     <div class="content">
       <comment-list-item-meta :item="item.user" />
+      <comment-list-item-content :item="item.user" />
     </div>
   </div>
 </template>
@@ -12,6 +13,7 @@
 <script>
 import UserAvatar from '@/user/components/user-avatar.vue';
 import { defineComponent } from 'vue';
+import CommentListItemContent from './comment-list-item-content.vue';
 import CommentListItemMeta from './comment-list-item-meta.vue';
 
 export default defineComponent({
@@ -53,7 +55,7 @@ export default defineComponent({
   /**
    * 使用组件
    */
-  components: { CommentListItemMeta, UserAvatar },
+  components: { CommentListItemMeta, UserAvatar, CommentListItemContent },
 });
 </script>
 
