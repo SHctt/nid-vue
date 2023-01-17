@@ -6,6 +6,11 @@
     <div class="content">
       <comment-list-item-meta :item="item" />
       <comment-list-item-content :item="item" />
+      <comment-list-item-action
+        :item="item"
+        @toggle-replies="onToggleReplies"
+      />
+      <div v-if="showReplies">回复列表</div>
     </div>
   </div>
 </template>
@@ -15,6 +20,7 @@ import { defineComponent } from 'vue';
 import CommentListItemContent from './comment-list-item-content.vue';
 import CommentListItemMeta from './comment-list-item-meta.vue';
 import UserAvatar from '@/user/components/user-avatar.vue';
+import CommentListItemAction from './comment-list-item-action.vue';
 
 export default defineComponent({
   name: 'CommentListItem',
@@ -32,7 +38,9 @@ export default defineComponent({
    * 数据
    */
   data() {
-    return {};
+    return {
+      showReplies: false,
+    };
   },
 
   /**
@@ -50,12 +58,21 @@ export default defineComponent({
   /**
    * 组件方法
    */
-  methods: {},
+  methods: {
+    onToggleReplies(data) {
+      this.showReplies = data;
+    },
+  },
 
   /**
    * 使用组件
    */
-  components: { CommentListItemMeta, UserAvatar, CommentListItemContent },
+  components: {
+    CommentListItemMeta,
+    UserAvatar,
+    CommentListItemContent,
+    CommentListItemAction,
+  },
 });
 </script>
 
