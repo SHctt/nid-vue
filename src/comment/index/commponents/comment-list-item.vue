@@ -3,12 +3,16 @@
     <div class="thumbnail">
       <user-avatar :user="item.user" link="user" />
     </div>
+    <div class="content">
+      <comment-list-item-meta :item="item.user" />
+    </div>
   </div>
 </template>
 
 <script>
 import UserAvatar from '@/user/components/user-avatar.vue';
 import { defineComponent } from 'vue';
+import CommentListItemMeta from './comment-list-item-meta.vue';
 
 export default defineComponent({
   name: 'CommentListItem',
@@ -17,9 +21,9 @@ export default defineComponent({
    * 属性
    */
   props: {
-    item:{
-      type:Object,
-    }
+    item: {
+      type: Object,
+    },
   },
 
   /**
@@ -49,11 +53,10 @@ export default defineComponent({
   /**
    * 使用组件
    */
-  components: {},
+  components: { CommentListItemMeta, UserAvatar },
 });
 </script>
 
-<
-    UserAvatarstyle scoped>
+<style scoped>
 @import './styles/comment-list-item.css';
 </style>
