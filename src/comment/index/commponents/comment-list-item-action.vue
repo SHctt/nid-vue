@@ -1,6 +1,8 @@
 <template>
-  <div class="comment-list-item-content">
-    {{ item.content }}
+  <div class="comment-list-item-action">
+    <div class="action">
+      <button class="button basic">{{ item.totalReplies }}条回复</button>
+    </div>
   </div>
 </template>
 
@@ -8,13 +10,13 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'CommentListItemContent',
+  name: 'CommentListItemAction',
 
   /**
    * 属性
    */
   props: {
-    item: {
+    tpye: {
       type: Object,
     },
   },
@@ -51,5 +53,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-@import './styles/comment-list-item-content.css';
+@import './styles/comment-list-item-action.css';
 </style>

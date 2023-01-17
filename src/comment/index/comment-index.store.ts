@@ -86,7 +86,7 @@ export const commentIndexStoreModule: Module<
       state.filter = filter;
     },
 
-    setQuerySting(state, data) {
+    setQueryString(state, data) {
       state.queryString = data;
     },
 

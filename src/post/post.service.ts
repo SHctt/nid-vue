@@ -1,4 +1,4 @@
-import { API_BASE_URL } from '../app/app.config';
+import { API_BASE_URL } from '@/app/app.config';
 import Post from './show/post-show.store';
 
 // 处理post中的文件

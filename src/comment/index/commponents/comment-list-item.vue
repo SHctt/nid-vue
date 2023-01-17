@@ -4,17 +4,17 @@
       <user-avatar :user="item.user" link="user" />
     </div>
     <div class="content">
-      <comment-list-item-meta :item="item.user" />
-      <comment-list-item-content :item="item.user" />
+      <comment-list-item-meta :item="item" />
+      <comment-list-item-content :item="item" />
     </div>
   </div>
 </template>
 
 <script>
-import UserAvatar from '@/user/components/user-avatar.vue';
 import { defineComponent } from 'vue';
 import CommentListItemContent from './comment-list-item-content.vue';
 import CommentListItemMeta from './comment-list-item-meta.vue';
+import UserAvatar from '@/user/components/user-avatar.vue';
 
 export default defineComponent({
   name: 'CommentListItem',

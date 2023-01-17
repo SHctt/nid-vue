@@ -1,6 +1,6 @@
 <template>
   <div class="comment-list-item-meta">
-    <user-name :name="item.user" />
+    <user-name :user="item.user" />
   </div>
 </template>
 
@@ -14,7 +14,11 @@ export default defineComponent({
   /**
    * 属性
    */
-  props: {},
+  props: {
+    item: {
+      type: Object,
+    },
+  },
 
   /**
    * 数据

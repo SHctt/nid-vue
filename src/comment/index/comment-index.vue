@@ -33,7 +33,8 @@ export default defineComponent({
     }),
 
     filter() {
-      return this.sideSheetProps.filter;
+      console.log(this.sideSheetProps);
+      return this.sideSheetProps;
     },
   },
 
