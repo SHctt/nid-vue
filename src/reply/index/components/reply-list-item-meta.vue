@@ -1,19 +1,15 @@
 <template>
-  <div class="reply-list-item">
-    <div class="thumbnail">
-      <user-avatar :user="item.user" link="user" />
-      <reply-list-item-meta :item="item" />
-    </div>
+  <div class="reply-list-item-meta">
+    <user-name :user="item.user" />
   </div>
 </template>
 
 <script>
-import UserAvatar from '@/user/components/user-avatar.vue';
+import UserName from '@/user/components/user-name.vue';
 import { defineComponent } from 'vue';
-import ReplyListItemMeta from './reply-list-item-meta.vue';
 
 export default defineComponent({
-  name: 'ReplyListItem',
+  name: 'ReplyListItemMeta',
 
   /**
    * 属性
@@ -51,10 +47,10 @@ export default defineComponent({
   /**
    * 使用组件
    */
-  components: { UserAvatar, ReplyListItemMeta },
+  components: { UserName },
 });
 </script>
 
 <style scoped>
-@import './styles/reply-list-item.css';
+@import './styles/reply-list-item-meta.css';
 </style>
