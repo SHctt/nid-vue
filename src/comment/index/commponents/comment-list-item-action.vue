@@ -3,13 +3,14 @@
     <div class="action" v-if="item.totalReplies">
       <button class="button basic" @click="onClickTotalRepliesButton">
         {{ item.totalReplies }}条回复
-        <AppIcon :name="totalRepliesIconName" />
+        <app-icon :name="totalRepliesIconName" />
       </button>
     </div>
   </div>
 </template>
 
 <script>
+import AppIcon from '@/app/components/app-icon.vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -67,7 +68,7 @@ export default defineComponent({
   /**
    * 使用组件
    */
-  components: {},
+  components: { AppIcon },
 });
 </script>
 

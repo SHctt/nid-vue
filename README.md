@@ -42,3 +42,10 @@
 修正：17.8，现在可以显示评论，但是在内容列表点击任意一个图标，似乎都显示了所有的评论
 
 ## 17.14-用回复数量按钮切换显示回复列表
+
+## 修正错误
+
+1-修正在 comment-list-item-action 中的 appIcon 组件错误
+
+错误诊断：在内容列表中，点击评论，传递过来的通过 layout.store 中 setSideSheetProps 这个 mutation 传递过来的{filter:{post:this.item.id}}这个参数对象为空；所以这里点击评论图标时，sideSheetProps.filter 这个过滤条件为空的对象；而在这个内容列表直接使用 sideSheetProps 这个参数时，内容列表上的评论边栏上显示的是所有的评论条目；
+目前没有找到比较好的解决办法，留待后续解决；
