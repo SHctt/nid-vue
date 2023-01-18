@@ -13,7 +13,7 @@ export default {
   components: { AppLayout },
   data() {
     return {
-      name: '评论回复列表',
+      name: '为项目添加cli命令',
       layout: 'AppLayout',
     };
   },
