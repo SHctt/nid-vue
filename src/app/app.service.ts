@@ -12,6 +12,7 @@ export const apiHttpClient = axios.create({
 /**
  * 本地存储
  */
+// eslint-disable-next-line
 export const setStorage = (key: string, value: any) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
