@@ -12,15 +12,9 @@ import {
   appToolbarStoreModule,
   AppToolbarStoreState,
 } from './toolbar/app-toolbar.store';
-import { fileStoreModule, FileStoreState } from '../file/file.store';
-import {
-  commentStoreModule,
-  CommentStoreState,
-} from '../comment/comment.store';
-import {
-  replyStoreModule,
-  ReplyStoreState,
-} from '../comment/reply/reply.store';
+import { fileStoreModule, FileStoreState } from '@/file/file.store';
+import { commentStoreModule, CommentStoreState } from '@/comment/comment.store';
+import { replyStoreModule, ReplyStoreState } from '@/reply/reply.store';
 
 export interface RootState {
   appName: string;
