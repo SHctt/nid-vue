@@ -10,7 +10,7 @@
         :item="item"
         @toggle-replies="onToggleReplies"
       />
-      <div v-if="showReplies">回复列表</div>
+      <reply-index v-if="showReplies" />
     </div>
   </div>
 </template>
@@ -21,6 +21,7 @@ import CommentListItemContent from './comment-list-item-content.vue';
 import CommentListItemMeta from './comment-list-item-meta.vue';
 import UserAvatar from '@/user/components/user-avatar.vue';
 import CommentListItemAction from './comment-list-item-action.vue';
+import ReplyIndex from '@/reply/index/reply-index.vue';
 
 export default defineComponent({
   name: 'CommentListItem',
@@ -72,6 +73,7 @@ export default defineComponent({
     UserAvatar,
     CommentListItemContent,
     CommentListItemAction,
+    ReplyIndex,
   },
 });
 </script>
