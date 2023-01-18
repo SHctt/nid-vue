@@ -5482,7 +5482,7 @@ lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17
 
 lodash@^4.17.20:
   version "4.17.21"
-  resolved "https://registry.npmmirror.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-symbols@^2.2.0:
@@ -8544,9 +8544,9 @@ vm-browserify@^1.0.1:
   integrity sha1-eGQcSIuObKkadfUR56OzKobl3aA=
 
 vue-cli-plugin-nid@^1.2.8:
-  version "1.2.8"
-  resolved "https://registry.npmmirror.com/vue-cli-plugin-nid/-/vue-cli-plugin-nid-1.2.8.tgz#233a77e2964c8876f375df9b53e758fc9e95aa53"
-  integrity sha512-aXSQ+utWbdzHrpd/rucvngcx/AjxNPmWSQ+dEKClqm1xhsN8zdfP/hYWaWqZg7fXeWmHCo7Yj9Zzv0+WPmws8Q==
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/vue-cli-plugin-nid/-/vue-cli-plugin-nid-1.2.10.tgz#5d7fc867d7f49f5b10aeba7aabfee7229848f686"
+  integrity sha512-5QtbEgrEknbGo+CQ52H7eL6hm1zgpfy1z8ZtHNvvEPm3n2INwdcW0u3ruMu7LZ9j9XEVSvsvNf67LANivtHlFg==
   dependencies:
     lodash "^4.17.20"
 
