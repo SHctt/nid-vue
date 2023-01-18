@@ -13,7 +13,7 @@ export default {
   components: { AppLayout },
   data() {
     return {
-      name: '为项目添加cli命令',
+      name: '创建、更新、删除评论',
       layout: 'AppLayout',
     };
   },
