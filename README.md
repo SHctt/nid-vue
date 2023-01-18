@@ -13,3 +13,5 @@
 
     错误诊断：在内容列表中，点击评论，传递过来的通过 layout.store 中 setSideSheetProps 这个 mutation 传递过来的{filter:{post:this.item.id}}这个参数对象为空；所以这里点击评论图标时，sideSheetProps.filter 这个过滤条件为空的对象；而在这个内容列表直接使用 sideSheetProps 这个参数时，内容列表上的评论边栏上显示的是所有的评论条目；
     目前没有找到比较好的解决办法，留待后续解决；
+
+## 18.1-屏蔽 layout.store 里的 any 警告
