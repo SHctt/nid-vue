@@ -63,11 +63,13 @@ export const replyIndexStoreModule: Module<ReplyIndexStoreState, RootState> = {
    * 动作
    */
   actions: {
-    async getReplies({ commit }) {
+    async getReplies({ commit }, commentId: number) {
       commit('setLoading', true);
 
       try {
-        const response = await apiHttpClient.get(`comment/commentId/replies`);
+        const response = await apiHttpClient.get(
+          `comments/${commentId}/replies`,
+        );
         commit('setReplyListItem', response.data);
         commit('setLoading', false);
 

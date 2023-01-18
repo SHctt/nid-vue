@@ -10,7 +10,7 @@
         :item="item"
         @toggle-replies="onToggleReplies"
       />
-      <reply-index v-if="showReplies" />
+      <reply-index :comment="item" v-if="showReplies" />
     </div>
   </div>
 </template>
