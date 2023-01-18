@@ -2,7 +2,10 @@
   <div class="reply-list-item">
     <div class="thumbnail">
       <user-avatar :user="item.user" link="user" />
+    </div>
+    <div class="content">
       <reply-list-item-meta :item="item" />
+      <reply-list-item-content :item="item" />
     </div>
   </div>
 </template>
@@ -10,6 +13,7 @@
 <script>
 import UserAvatar from '@/user/components/user-avatar.vue';
 import { defineComponent } from 'vue';
+import ReplyListItemContent from './reply-list-item-content.vue';
 import ReplyListItemMeta from './reply-list-item-meta.vue';
 
 export default defineComponent({
@@ -51,7 +55,7 @@ export default defineComponent({
   /**
    * 使用组件
    */
-  components: { UserAvatar, ReplyListItemMeta },
+  components: { UserAvatar, ReplyListItemMeta, ReplyListItemContent },
 });
 </script>
 
