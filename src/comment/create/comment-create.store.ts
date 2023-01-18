@@ -1,11 +1,20 @@
 import { Module } from 'vuex';
 import { RootState } from '@/app/app.store';
+import { apiHttpClient } from '../../app/app.service';
 
 export interface CommentCreateStoreState {
-  name: string;
+  loading: boolean;
 }
 
-export const commentCreateStoreModule: Module<CommentCreateStoreState, RootState> = {
+export interface CreateCommentOptions {
+  postId?: number;
+  content?: string;
+}
+
+export const commentCreateStoreModule: Module<
+  CommentCreateStoreState,
+  RootState
+> = {
   /**
    * 命名空间
    */
@@ -15,33 +24,62 @@ export const commentCreateStoreModule: Module<CommentCreateStoreState, RootState
    * 数据
    */
   state: {
-    name: 'commentCreateStoreModule',
+    loading: false,
   } as CommentCreateStoreState,
 
   /**
    * 获取器
    */
   getters: {
-   
+    loading(state) {
+      return state.loading;
+    },
   },
 
   /**
    * 修改器
    */
-  mutations: {
-
-  },
+  mutations: {},
 
   /**
    * 动作
    */
   actions: {
+    async createComment(
+      { commit, dispatch },
+      options: CreateCommentOptions = {},
+    ) {
+      commit('setLoading', true);
 
+      const { postId, content } = options;
+
+      try {
+        const response = await apiHttpClient.post(`comments`, {
+          postId,
+          content,
+        });
+
+        commit('setLoading', false);
+
+        commit('comment/index/setNextPage', 1, { root: true });
+
+        dispatch(
+          'comment/index/getComments',
+          { filter: { post: postId } },
+          { root: true },
+        );
+
+        return response;
+      } catch (error) {
+        commit('setLoading', false);
+
+        throw error.response;
+      }
+    },
   },
 
   /**
    * 模块
    */
-  modules: {
-  },
+  modules: {},
 };

@@ -24,3 +24,5 @@ yarn gc -- comment-create --path comment/create --parent comment/components/comm
 ## 20.3-修整创建评论的组件
 
 ## 20.4-设计创建评论组件样式
+
+## 20.5-定义创建评论动作
