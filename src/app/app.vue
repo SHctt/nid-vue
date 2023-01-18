@@ -13,7 +13,7 @@ export default {
   components: { AppLayout },
   data() {
     return {
-      name: '评论列表',
+      name: '评论回复列表',
       layout: 'AppLayout',
     };
   },
