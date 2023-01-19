@@ -8,7 +8,9 @@
       <comment-list-item-content
         :item="item"
         @click="onClickCommentListItemContent"
+        v-if="!isEditing"
       />
+      <comment-edit v-if="isEditing" :comment="item" />
       <comment-list-item-action
         :item="item"
         @toggle-replies="onToggleReplies"
@@ -28,6 +30,7 @@ import CommentListItemMeta from './comment-list-item-meta.vue';
 import UserAvatar from '@/user/components/user-avatar.vue';
 import CommentListItemAction from './comment-list-item-action.vue';
 import ReplyIndex from '@/reply/index/reply-index.vue';
+import CommentEdit from '@/comment/edit/comment-edit.vue';
 
 export default defineComponent({
   name: 'CommentListItem',
@@ -90,6 +93,7 @@ export default defineComponent({
     CommentListItemContent,
     CommentListItemAction,
     ReplyIndex,
+    CommentEdit,
   },
 });
 </script>
