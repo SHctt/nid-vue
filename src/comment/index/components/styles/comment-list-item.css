@@ -1,8 +1,12 @@
-.comment-list-user {
+.comment-list-item {
   display: flex;
   margin-bottom: 32px;
 }
 
-.comment-list-user > .thumbnail {
+.comment-list-item > .thumbnail {
   margin-right: 16px;
+}
+
+.comment-list-item > .content {
+  flex-grow: 2;
 }
