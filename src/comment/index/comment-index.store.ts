@@ -109,7 +109,7 @@ export const commentIndexStoreModule: Module<
   actions: {
     async getComments(
       { commit, state, dispatch },
-      options: GetCommentsOptions,
+      options: GetCommentsOptions = {}, //修复了17.8中的错误
     ) {
       let getCommentsQueryString = '';
 
@@ -137,7 +137,7 @@ export const commentIndexStoreModule: Module<
       }
     },
 
-    getCommentsPreProcess({ commit, state }, options: GetCommentsOptions) {
+    getCommentsPreProcess({ commit, state }, options: GetCommentsOptions = {}) {
       commit('setLoading', true);
       commit('setFilter', options.filter);
 

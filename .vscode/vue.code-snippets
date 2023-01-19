@@ -412,5 +412,9 @@
   "Vuex: import": {
     "prefix": "ivx",
     "body": ["import {$1} from 'vuex';"]
+  },
+  "import from": {
+    "prefix": "imff",
+    "body": ["import {$1} from '@';"]
   }
 }

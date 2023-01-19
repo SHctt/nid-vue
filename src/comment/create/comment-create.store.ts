@@ -1,6 +1,6 @@
 import { Module } from 'vuex';
 import { RootState } from '@/app/app.store';
-import { apiHttpClient } from '../../app/app.service';
+import { apiHttpClient } from '@/app/app.service';
 
 export interface CommentCreateStoreState {
   loading: boolean;
@@ -39,7 +39,11 @@ export const commentCreateStoreModule: Module<
   /**
    * 修改器
    */
-  mutations: {},
+  mutations: {
+    setLoading(state, data) {
+      state.loading = data;
+    },
+  },
 
   /**
    * 动作

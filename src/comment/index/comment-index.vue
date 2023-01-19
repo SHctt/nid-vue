@@ -33,7 +33,7 @@ export default defineComponent({
     }),
 
     filter() {
-      return this.sideSheetProps;
+      return this.sideSheetProps.filter;
     },
   },
 
