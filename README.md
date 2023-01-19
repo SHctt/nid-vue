@@ -55,3 +55,5 @@ yarn gc -- comment-edit --vuex mapActions
 ## 20.18-定义更新评论 Store 模块
 
 yarn gs -- comment-edit --path comment/edit --action updateComment --method patch --parent comment --module edit
+
+## 20.19-更新评论

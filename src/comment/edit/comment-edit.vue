@@ -17,6 +17,11 @@ export default defineComponent({
   name: 'CommentEdit',
 
   /**
+   * 事件
+   */
+  emits: ['updated'],
+
+  /**
    * 属性
    */
   props: {
@@ -50,14 +55,28 @@ export default defineComponent({
    * 组件方法
    */
   methods: {
-    ...mapActions({}),
+    ...mapActions({
+      pushMessage: 'notification/pushMessage',
+      updateComment: 'comment/edit/updateComment',
+    }),
 
     onClickCancelButton() {
       this.commentContent = this.comment.content;
     },
 
-    onClickUpdateButton() {
-      console.log('update');
+    async onClickUpdateButton() {
+      if (!this.commentContent.trim()) return;
+
+      try {
+        await this.updateComment({
+          commentId: this.comment.id,
+          content: this.commentContent,
+        });
+
+        this.$emit('updated', this.commentContent);
+      } catch (error) {
+        this.pushMessage({ content: error.data.message });
+      }
     },
   },
 
