@@ -13,7 +13,7 @@ export default {
   components: { AppLayout },
   data() {
     return {
-      name: '创建、更新、删除评论',
+      name: '用户评论的回复',
       layout: 'AppLayout',
     };
   },
