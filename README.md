@@ -25,3 +25,5 @@ yarn gc -- comment-create --path comment/create --parent comment/components/comm
 修正：修复了在 17.8 中，内容列表上点击评论按钮，边栏的评论列表显示不正确的问题
 
 ## 20.7-用按键组合发表评论
+
+## 20.8-处理创建评论组件里的注册与登录按钮
