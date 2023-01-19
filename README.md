@@ -37,3 +37,5 @@ yarn gc -- comment-create --path comment/create --parent comment/components/comm
 修正：comment 的 index 中的 path 错误
 
 ## 20.12-点击评论内容显示删除按钮
+
+## 20.13-定义删除评论的 sotre 模块

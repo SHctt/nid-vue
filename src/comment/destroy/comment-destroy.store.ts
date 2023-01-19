@@ -2,17 +2,16 @@ import { Module } from 'vuex';
 import { RootState } from '@/app/app.store';
 import { apiHttpClient } from '@/app/app.service';
 
-export interface CommentCreateStoreState {
+export interface CommentDestroyStoreState {
   loading: boolean;
 }
 
-export interface CreateCommentOptions {
-  postId?: number;
-  content?: string;
+export interface DeleteCommentOptions {
+  commentId?: null;
 }
 
-export const commentCreateStoreModule: Module<
-  CommentCreateStoreState,
+export const commentDestroyStoreModule: Module<
+  CommentDestroyStoreState,
   RootState
 > = {
   /**
@@ -25,7 +24,7 @@ export const commentCreateStoreModule: Module<
    */
   state: {
     loading: false,
-  } as CommentCreateStoreState,
+  } as CommentDestroyStoreState,
 
   /**
    * 获取器
@@ -49,29 +48,14 @@ export const commentCreateStoreModule: Module<
    * 动作
    */
   actions: {
-    async createComment(
-      { commit, dispatch },
-      options: CreateCommentOptions = {},
-    ) {
+    async deleteComment({ commit }, options: DeleteCommentOptions = {}) {
       commit('setLoading', true);
 
-      const { postId, content } = options;
+      const { commentId } = options;
 
       try {
-        const response = await apiHttpClient.post(`comments`, {
-          postId,
-          content,
-        });
-
+        const response = await apiHttpClient.delete(`comments/${commentId}`);
         commit('setLoading', false);
-
-        commit('comment/index/setNextPage', 1, { root: true });
-
-        dispatch(
-          'comment/index/getComments',
-          { filter: { post: postId } },
-          { root: true },
-        );
 
         return response;
       } catch (error) {
