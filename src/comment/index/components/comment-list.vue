@@ -5,12 +5,16 @@
       :key="comment.id"
       :item="comment"
     />
+    <template v-if="loading">
+      <comment-list-item-skeleton v-for="number in 20" :key="number" />
+    </template>
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
 import { mapGetters, mapActions } from 'vuex';
+import CommentListItemSkeleton from './comment-list-item-skeleton.vue';
 import CommentListItem from './comment-list-item.vue';
 
 export default defineComponent({
@@ -82,7 +86,7 @@ export default defineComponent({
   /**
    * 使用组件
    */
-  components: { CommentListItem },
+  components: { CommentListItem, CommentListItemSkeleton },
 });
 </script>
 

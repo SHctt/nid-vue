@@ -31,3 +31,7 @@ yarn gc -- comment-create --path comment/create --parent comment/components/comm
 ## 20.9-让页面侧板可以滚动到底部
 
 ## 20.10-评论列表滚动到底部时加载更多
+
+## 20-11-创建评论列表的骨架组件
+
+修正：comment 的 index 中的 path 错误

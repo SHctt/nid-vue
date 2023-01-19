@@ -85,7 +85,7 @@ export default defineComponent({
         this.setSideSheetComponent('CommentSideSheet');
 
         this.setSideSheetProps({
-          post: this.post.id,
+          filter: { post: this.post.id }, //修复post-show页面上评论列表的错误
         });
       }
     },

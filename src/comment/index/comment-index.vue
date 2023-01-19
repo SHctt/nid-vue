@@ -7,7 +7,7 @@
 <script>
 import { defineComponent } from 'vue';
 import { mapGetters } from 'vuex';
-import CommentList from './commponents/comment-list.vue';
+import CommentList from './components/comment-list.vue';
 
 export default defineComponent({
   name: 'CommentIndex',
