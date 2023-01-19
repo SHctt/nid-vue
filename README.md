@@ -39,3 +39,5 @@ yarn gc -- comment-create --path comment/create --parent comment/components/comm
 ## 20.12-点击评论内容显示删除按钮
 
 ## 20.13-定义删除评论的 sotre 模块
+
+## 20.14-删除评论
