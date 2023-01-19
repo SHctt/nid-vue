@@ -39,6 +39,8 @@ export default defineComponent({
     ...mapGetters({
       loading: 'comment/index/loading',
       comments: 'comment/index/comments',
+      hasMore: 'comment/index/hasMore',
+      sideSheetTouchDown: 'layout/sideSheetTouchDown',
     }),
   },
 
@@ -56,6 +58,16 @@ export default defineComponent({
     filter() {
       this.getComments({ filter: this.filter });
     },
+
+    sideSheetTouchDown(newValue) {
+      if (newValue && this.hasMore && !this.loading) {
+        try {
+          this.getComments({ filter: this.filter });
+        } catch (error) {
+          this.pushMessage({ content: error.data.message });
+        }
+      }
+    },
   },
   /**
    * 组件方法
@@ -63,6 +75,7 @@ export default defineComponent({
   methods: {
     ...mapActions({
       getComments: 'comment/index/getComments',
+      pushMessage: 'notification/pushMessage',
     }),
   },
 
