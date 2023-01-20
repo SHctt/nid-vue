@@ -17,7 +17,7 @@ export interface CommentListItem {
     id: number;
     title: string;
   };
-  totilReplies: number | null;
+  totalReplies: number | null;
 }
 
 export type Comments = Array<CommentListItem>;
@@ -108,6 +108,19 @@ export const commentIndexStoreModule: Module<
 
     removeCommentListItem(state, data) {
       state.comments = state.comments.filter(item => item.id !== data);
+    },
+
+    increaseTotalReplies(state, data) {
+      state.comments = state.comments.map(item => {
+        if (item.id === data) {
+          if (item.totalReplies) {
+            item.totalReplies++;
+          } else {
+            item.totalReplies = 1;
+          }
+        }
+        return item;
+      });
     },
   },
 

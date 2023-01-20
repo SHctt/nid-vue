@@ -28,3 +28,5 @@ yarn gc -- reply-create --parent comment-list-item --vuex mapGetters,mapActions,
 yarn gs -- reply-create --parent reply/reply --module create --action createReply --method post
 
 ## 21.4-创建回复
+
+## 21.5-回复成功以后增加评论的回复数量
