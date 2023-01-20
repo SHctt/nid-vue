@@ -1,8 +1,11 @@
 <template>
-  <div>UserReplies</div>
+  <div class="user-replies">
+    <comment-list :filter="filter" />
+  </div>
 </template>
 
 <script>
+import CommentList from '@/comment/index/components/comment-list.vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -11,7 +14,11 @@ export default defineComponent({
   /**
    * 属性
    */
-  props: {},
+  props: {
+    filter: {
+      type: Object,
+    },
+  },
 
   /**
    * 数据
@@ -40,8 +47,10 @@ export default defineComponent({
   /**
    * 使用组件
    */
-  components: {},
+  components: { CommentList },
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+@import './styles/user-replies.css';
+</style>
