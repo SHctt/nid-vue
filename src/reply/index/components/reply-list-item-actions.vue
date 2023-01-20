@@ -5,6 +5,11 @@
         {{ deleteButtonText }}
       </button>
     </div>
+    <div class="action" v-if="showOwnReplyOperation">
+      <button class="button pill" @click="onClickUpdateButton">
+        {{ updateButtonText }}
+      </button>
+    </div>
   </div>
 </template>
 
@@ -15,6 +20,7 @@ import { mapGetters, mapMutations, mapActions } from 'vuex';
 export default defineComponent({
   name: 'ReplyListItemActions',
 
+  emits: ['editing'],
   /**
    * 属性
    */
@@ -29,6 +35,10 @@ export default defineComponent({
 
     comment: {
       type: Object,
+    },
+
+    isEditing: {
+      type: Boolean,
     },
   },
 
@@ -59,6 +69,10 @@ export default defineComponent({
 
     deleteButtonText() {
       return this.confirmDelete ? '确认删除' : '删除';
+    },
+
+    updateButtonText() {
+      return this.isEditing ? '' : '修改';
     },
   },
 
@@ -94,6 +108,10 @@ export default defineComponent({
       }
 
       this.confirmDelete = !this.confirmDelete;
+    },
+
+    onClickUpdateButton() {
+      this.$emit('editing');
     },
   },
 

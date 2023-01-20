@@ -13,12 +13,16 @@
         :item="item"
         :showOperation="showOperation"
         :comment="comment"
+        :isEditing="isEditing"
+        @editing="onEditingReply"
       />
+      <comment-edit v-if="isEditing" :comment="item" @updated="onUpdateReply" />
     </div>
   </div>
 </template>
 
 <script>
+import CommentEdit from '@/comment/edit/comment-edit.vue';
 import UserAvatar from '@/user/components/user-avatar.vue';
 import { defineComponent } from 'vue';
 import ReplyListItemActions from './reply-list-item-actions.vue';
@@ -47,6 +51,8 @@ export default defineComponent({
   data() {
     return {
       showOperation: false,
+      isEditing: false,
+      reply: this.item,
     };
   },
 
@@ -69,6 +75,15 @@ export default defineComponent({
     onClickReplyListItemContent() {
       this.showOperation = !this.showOperation;
     },
+
+    onEditingReply() {
+      this.isEditing = !this.isEditing;
+    },
+
+    onUpdateReply(data) {
+      this.reply.content = data;
+      this.isEditing = false;
+    },
   },
 
   /**
@@ -79,6 +94,7 @@ export default defineComponent({
     ReplyListItemMeta,
     ReplyListItemContent,
     ReplyListItemActions,
+    CommentEdit,
   },
 });
 </script>
