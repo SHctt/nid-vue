@@ -34,6 +34,9 @@ export default defineComponent({
     comment: {
       type: Object,
     },
+    showReplies: {
+      type: Object,
+    },
   },
 
   /**
@@ -71,6 +74,7 @@ export default defineComponent({
     ...mapActions({
       pushMessage: 'notification/pushMessage',
       createReply: 'reply/create/createReply',
+      getReplies: 'reply/index/getReplies',
     }),
 
     async submitReply() {
@@ -88,6 +92,10 @@ export default defineComponent({
         this.$emit('replied', this.comment.id);
 
         this.increaseTotalReplies(this.comment.id);
+
+        if (this.showReplies) {
+          this.getReplies(this.comment.id);
+        }
       } catch (error) {
         this.pushMessage({ content: error.data.message });
       }

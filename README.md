@@ -30,3 +30,5 @@ yarn gs -- reply-create --parent reply/reply --module create --action createRepl
 ## 21.4-创建回复
 
 ## 21.5-回复成功以后增加评论的回复数量
+
+## 21.6-回复成功以后加载回复列表
