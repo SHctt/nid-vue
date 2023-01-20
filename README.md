@@ -15,3 +15,7 @@ yarn gc -- comment-edit --vuex mapActions
 yarn gs -- comment-edit --path comment/edit --action updateComment --method patch --parent comment --module edit
 
 ## 21.1-添加评论回复按钮
+
+## 21.1-创建评论回复组件
+
+yarn gc -- reply-create --parent comment-list-item --vuex mapGetters,mapActions,mapMutations

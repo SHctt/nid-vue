@@ -24,6 +24,7 @@
         @replying="onReplyingComment"
         :isReplying="isReplying"
       />
+      <ReplyCreate />
       <reply-index :comment="item" v-if="showReplies" />
     </div>
   </div>
@@ -37,6 +38,7 @@ import UserAvatar from '@/user/components/user-avatar.vue';
 import CommentListItemAction from './comment-list-item-action.vue';
 import ReplyIndex from '@/reply/index/reply-index.vue';
 import CommentEdit from '@/comment/edit/comment-edit.vue';
+import ReplyCreate from '@/reply/create/reply-create';
 
 export default defineComponent({
   name: 'CommentListItem',
@@ -105,6 +107,7 @@ export default defineComponent({
    * 使用组件
    */
   components: {
+    ReplyCreate,
     CommentListItemMeta,
     UserAvatar,
     CommentListItemContent,
