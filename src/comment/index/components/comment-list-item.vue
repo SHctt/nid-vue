@@ -27,6 +27,7 @@
       <ReplyCreate
         v-if="isReplying"
         :comment="item"
+        @replied="onRepliedComment"
         :showReplies="showReplies"
       />
       <reply-index :comment="item" v-if="showReplies" />
@@ -104,6 +105,10 @@ export default defineComponent({
 
     onReplyingComment() {
       this.isReplying = !this.isReplying;
+    },
+
+    onRepliedComment() {
+      this.showReplies = true;
     },
   },
 

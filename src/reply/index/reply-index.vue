@@ -43,7 +43,6 @@ export default defineComponent({
    */
   async created() {
     //
-    console.log(this.comment.id);
     this.getReplies(this.comment.id);
   },
 

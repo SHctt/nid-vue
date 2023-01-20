@@ -35,7 +35,7 @@ export default defineComponent({
       type: Object,
     },
     showReplies: {
-      type: Object,
+      type: Boolean,
     },
   },
 

@@ -32,3 +32,10 @@ yarn gs -- reply-create --parent reply/reply --module create --action createRepl
 ## 21.5-回复成功以后增加评论的回复数量
 
 ## 21.6-回复成功以后加载回复列表
+
+## 21.7-定义回复列表项目动作组件
+
+修正：回复成功后，执行 replied 事件，显示回复列表
+修正：点击取消回复，删除当前评论的问题
+
+yarn gc -- reply-list-item-actions --path reply/index/components --vuex mapGetters --parent reply-list-item

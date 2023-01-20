@@ -6,8 +6,8 @@
         <app-icon :name="totalRepliesIconName" />
       </button>
     </div>
-    <div class="action" @click="onClickReplyButton">
-      <button class="button basic" @click="onClickDeleteButton">
+    <div class="action">
+      <button class="button basic" @click="onClickReplyButton">
         {{ replyButtonText }}
       </button>
     </div>
