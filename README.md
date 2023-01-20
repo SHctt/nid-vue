@@ -19,3 +19,7 @@ yarn gc -- reply-list-item-actions --path reply/index/components --vuex mapGette
 
 常用：
 // eslint-disable-next-line --- 忽略下一行 any 类型错误
+
+## 22.1-创建新建内容的组件
+
+yarn gc -- post-create
