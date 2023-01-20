@@ -41,3 +41,5 @@ yarn gs -- reply-create --parent reply/reply --module create --action createRepl
 yarn gc -- reply-list-item-actions --path reply/index/components --vuex mapGetters --parent reply-list-item
 
 ## 21.8-编辑回复
+
+## 21.9-删除回复后减少评论回复数量

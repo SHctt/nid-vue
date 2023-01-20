@@ -93,6 +93,7 @@ export default defineComponent({
     }),
     ...mapMutations({
       removeReplyListItem: 'reply/index/removeReplyListItem',
+      decreaseTotalReplies: 'comment/index/decreaseTotalReplies',
     }),
     async onClickDeleteButton() {
       if (this.confirmDelete) {
@@ -102,6 +103,8 @@ export default defineComponent({
             commentId: this.comment.id,
             replyId: this.item.id,
           });
+
+          this.decreaseTotalReplies(this.comment.id);
         } catch (error) {
           this.pushMessage({ content: error.data.message });
         }
