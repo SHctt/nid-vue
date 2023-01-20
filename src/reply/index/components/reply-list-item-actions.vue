@@ -10,7 +10,7 @@
 
 <script>
 import { defineComponent } from 'vue';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations, mapActions } from 'vuex';
 
 export default defineComponent({
   name: 'ReplyListItemActions',
@@ -25,6 +25,10 @@ export default defineComponent({
 
     showOperation: {
       type: Boolean,
+    },
+
+    comment: {
+      type: Object,
     },
   },
 
@@ -69,7 +73,26 @@ export default defineComponent({
    * 组件方法
    */
   methods: {
-    onClickDeleteButton() {
+    ...mapActions({
+      deleteComment: 'comment/destroy/deleteComment',
+      pushMessage: 'notification/pushMessage',
+    }),
+    ...mapMutations({
+      removeReplyListItem: 'reply/index/removeReplyListItem',
+    }),
+    async onClickDeleteButton() {
+      if (this.confirmDelete) {
+        try {
+          await this.deleteComment({ commentId: this.comment.id });
+          this.removeReplyListItem({
+            commentId: this.comment.id,
+            replyId: this.item.id,
+          });
+        } catch (error) {
+          this.pushMessage({ content: error.data.message });
+        }
+      }
+
       this.confirmDelete = !this.confirmDelete;
     },
   },

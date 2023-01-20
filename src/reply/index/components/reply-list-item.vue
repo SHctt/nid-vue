@@ -9,7 +9,11 @@
         :item="item"
         @click="onClickReplyListItemContent"
       />
-      <reply-list-item-actions :item="item" :showOperation="showOperation" />
+      <reply-list-item-actions
+        :item="item"
+        :showOperation="showOperation"
+        :comment="comment"
+      />
     </div>
   </div>
 </template>
@@ -29,6 +33,10 @@ export default defineComponent({
    */
   props: {
     item: {
+      type: Object,
+    },
+
+    comment: {
       type: Object,
     },
   },

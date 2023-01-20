@@ -1,6 +1,6 @@
 <template>
   <div class="reply-index">
-    <reply-list :list="replies(comment.id)" />
+    <reply-list :list="replies(comment.id)" :comment="comment" />
   </div>
 </template>
 
