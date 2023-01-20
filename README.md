@@ -26,3 +26,5 @@ yarn gc -- reply-create --parent comment-list-item --vuex mapGetters,mapActions,
 ## 21.3-创建回复 Store 模块
 
 yarn gs -- reply-create --parent reply/reply --module create --action createReply --method post
+
+## 21.4-创建回复

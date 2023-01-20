@@ -4,7 +4,11 @@
       <user-avatar :user="currentUser" />
     </div>
     <div class="content">
-      <textarea-field />
+      <textarea-field
+        placeholder="回复评论"
+        v-model="content"
+        @keydown="onKeyDownReplyTextarea"
+      />
       <div class="actions">
         <button class="button pill" @click="onClickCancelButton">取消</button>
         <button class="button pill" @click="onClickReplyButton">回复</button>
@@ -22,16 +26,23 @@ import { mapGetters, mapActions, mapMutations } from 'vuex';
 export default defineComponent({
   name: 'ReplyCreate',
 
+  emits: ['replied'],
   /**
    * 属性
    */
-  props: {},
+  props: {
+    comment: {
+      type: Object,
+    },
+  },
 
   /**
    * 数据
    */
   data() {
-    return {};
+    return {
+      content: '',
+    };
   },
 
   /**
@@ -55,14 +66,44 @@ export default defineComponent({
    */
   methods: {
     ...mapMutations({}),
-    ...mapActions({}),
+    ...mapActions({
+      pushMessage: 'notification/pushMessage',
+      createReply: 'reply/create/createReply',
+    }),
+
+    async submitReply() {
+      if (!this.content.trim()) return;
+
+      try {
+        await this.createReply({
+          commentId: this.comment.id,
+          postId: this.comment.post.id,
+          content: this.content,
+        });
+
+        this.content = '';
+
+        this.$emit('replied', this.comment.id);
+      } catch (error) {
+        this.pushMessage({ content: error.data.message });
+      }
+    },
 
     onClickCancelButton() {
-      console.log('cancel');
+      this.content = '';
     },
 
     onClickReplyButton() {
-      console.log('reply');
+      this.submitReply();
+    },
+
+    onKeyDownReplyTextarea(event) {
+      if (
+        (event.ctrlKey && event.key === 'Enter') ||
+        (event.metaKey && event.key === 'Enter')
+      ) {
+        this.submitReply();
+      }
     },
   },
 

@@ -57,7 +57,7 @@ export const replyCreateStoreModule: Module<
 
       try {
         const response = await apiHttpClient.post(
-          `comment/${commentId}/reply`,
+          `comments/${commentId}/reply`,
           {
             postId,
             content,
