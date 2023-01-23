@@ -23,3 +23,5 @@ yarn gc -- reply-list-item-actions --path reply/index/components --vuex mapGette
 ## 22.1-创建新建内容的组件
 
 yarn gc -- post-create
+
+## 22.2-添加标题和内容字段

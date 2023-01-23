@@ -1,10 +1,13 @@
 <template>
   <div class="post-create">
-    PostCreate
+    <text-field placeholder="标题" />
+    <textarea-field placeholder="描述" class="bordered" :rows="1" />
   </div>
 </template>
 
 <script>
+import TextField from '@/app/components/text-field.vue';
+import TextareaField from '@/app/components/textarea-field.vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -25,26 +28,26 @@ export default defineComponent({
   /**
    * 计算属性
    */
-  computed: {
-  },
+  computed: {},
 
   /**
    * 已创建
    */
   created() {
-  // 
+    //
   },
 
   /**
    * 组件方法
    */
-  methods: {
-  },
+  methods: {},
 
   /**
    * 使用组件
    */
   components: {
+    TextField,
+    TextareaField,
   },
 });
 </script>
