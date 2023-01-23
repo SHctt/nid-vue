@@ -25,3 +25,5 @@ yarn gc -- reply-list-item-actions --path reply/index/components --vuex mapGette
 yarn gc -- post-create
 
 ## 22.2-添加标题和内容字段
+
+## 22.3-在创建内容组件里添加提交按钮
