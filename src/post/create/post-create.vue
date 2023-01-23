@@ -79,13 +79,34 @@ export default defineComponent({
       createPost: 'post/create/createPost',
       pushMessage: 'notification/pushMessage',
       getPostById: 'post/show/getPostById',
+      updatePost: 'post/edit/updatePost',
     }),
 
     onClickSubmieButton() {
       // console.log(this.title, this.content);
       if (!this.title.trim()) return;
 
+      if (this.postId) {
+        this.submitUpdatePost();
+      } else {
+        this.submitCreatePost();
+      }
+
       this.submitCreatePost();
+    },
+
+    async submitUpdatePost() {
+      try {
+        await this.updatePost({
+          postId: this.postId,
+          data: {
+            title: this.title,
+            content: this.content,
+          },
+        });
+      } catch (error) {
+        this.pushMessage({ content: error.data.message });
+      }
     },
 
     async submitCreatePost() {
