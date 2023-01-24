@@ -21,3 +21,7 @@ yarn gc -- reply-list-item-actions --path reply/index/components --vuex mapGette
 
 常用：
 // eslint-disable-next-line --- 忽略下一行 any 类型错误
+
+## 23.1-定义内容标签字段组件
+
+yarn gc -- post-tag-field --path post/components --parent post/create/post-create
