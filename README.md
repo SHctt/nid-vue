@@ -25,3 +25,5 @@ yarn gc -- reply-list-item-actions --path reply/index/components --vuex mapGette
 ## 23.1-定义内容标签字段组件
 
 yarn gc -- post-tag-field --path post/components --parent post/create/post-create
+
+## 23.2-定义与使用添加内容标签动作

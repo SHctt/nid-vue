@@ -16,6 +16,16 @@ export interface UpdatePostOptions {
   data?: UpdatePostData;
 }
 
+export interface TagItem {
+  id?: number;
+  name?: string;
+}
+
+export interface CreatePostTagOptions {
+  postId?: number;
+  data?: TagItem;
+}
+
 export const postEditStoreModule: Module<PostEditStoreState, RootState> = {
   /**
    * 命名空间
@@ -64,6 +74,29 @@ export const postEditStoreModule: Module<PostEditStoreState, RootState> = {
       } catch (error) {
         commit('setLoading', false);
 
+        // eslint-disable-next-line
+        const _error = error as any;
+
+        if (_error.response) {
+          throw _error.response;
+        }
+      }
+    },
+
+    async createPostTag({ commit }, options: CreatePostTagOptions = {}) {
+      commit('setLoading', true);
+
+      const { postId, data } = options;
+
+      try {
+        const response = await apiHttpClient.post(`posts/${postId}/tag`, data);
+        commit('setLoading', false);
+
+        return response;
+      } catch (error) {
+        commit('setLoading', false);
+
+        // eslint-disable-next-line
         const _error = error as any;
 
         if (_error.response) {
