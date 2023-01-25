@@ -23,3 +23,5 @@ yarn gc -- reply-list-item-actions --path reply/index/components --vuex mapGette
 // eslint-disable-next-line --- 忽略下一行 any 类型错误
 
 ## 24.1-修正参数的类型错误
+
+## 24.2-把创建内容组件里的数据放在 Store 模块里

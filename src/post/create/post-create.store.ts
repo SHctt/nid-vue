@@ -3,6 +3,9 @@ import { apiHttpClient } from '../../app/app.service';
 import { RootState } from '../../app/app.store';
 
 export interface PostCreateStoreState {
+  postId: number | null;
+  title: string;
+  content: string;
   loading: boolean;
 }
 
@@ -19,10 +22,25 @@ export const postCreateStoreModule: Module<PostCreateStoreState, RootState> = {
   namespaced: true,
 
   state: {
+    postId: null,
+    title: '',
+    content: '',
     loading: false,
   } as PostCreateStoreState,
 
   getters: {
+    postId(state) {
+      return state.postId;
+    },
+
+    title(state) {
+      return state.title;
+    },
+
+    content(state) {
+      return state.content;
+    },
+
     loading(state) {
       return state.loading;
     },
@@ -31,6 +49,18 @@ export const postCreateStoreModule: Module<PostCreateStoreState, RootState> = {
   mutations: {
     setLoading(state, data) {
       state.loading = data;
+    },
+
+    setPostId(state, data) {
+      state.postId = data;
+    },
+
+    setTitle(state, data) {
+      state.title = data;
+    },
+
+    setContent(state, data) {
+      state.content = data;
     },
   },
 
@@ -42,12 +72,18 @@ export const postCreateStoreModule: Module<PostCreateStoreState, RootState> = {
         const response = await apiHttpClient.post(`posts`, data);
 
         commit('setLoading', false);
+        commit('setPostId', response.data.insertId);
 
         return response;
       } catch (error) {
         commit('setLoading', false);
 
-        throw error.response;
+        // eslint-disable-next-line
+        const _error = error as any;
+
+        if (_error.response) {
+          throw _error.response;
+        }
       }
     },
   },

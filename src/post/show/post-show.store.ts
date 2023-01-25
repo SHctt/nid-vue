@@ -123,7 +123,12 @@ export const postShowStoreModule: Module<PostShowStoreState, RootState> = {
       } catch (error) {
         commit('setLoading', false);
 
-        throw error.response;
+        // eslint-disable-next-line
+        const _error = error as any;
+
+        if (_error.response) {
+          throw _error.response;
+        }
       }
     },
 
@@ -140,7 +145,12 @@ export const postShowStoreModule: Module<PostShowStoreState, RootState> = {
 
         return response;
       } catch (error) {
-        throw error.response;
+        // eslint-disable-next-line
+        const _error = error as any;
+
+        if (_error.response) {
+          throw _error.response;
+        }
       }
     },
 
@@ -162,7 +172,12 @@ export const postShowStoreModule: Module<PostShowStoreState, RootState> = {
 
         return response;
       } catch (error) {
-        throw error.response;
+        // eslint-disable-next-line
+        const _error = error as any;
+
+        if (_error.response) {
+          throw _error.response;
+        }
       }
     },
   },
