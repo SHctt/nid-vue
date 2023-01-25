@@ -25,3 +25,7 @@ yarn gc -- reply-list-item-actions --path reply/index/components --vuex mapGette
 ## 24.1-修正参数的类型错误
 
 ## 24.2-把创建内容组件里的数据放在 Store 模块里
+
+## 24.3-创建内容标题字段组件
+
+yarn gc -- post-title-field --path post/components --parent post/create/post-create
