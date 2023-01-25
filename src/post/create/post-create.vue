@@ -1,12 +1,7 @@
 <template>
   <div class="post-create">
     <PostTitleField />
-    <textarea-field
-      placeholder="描述"
-      class="bordered"
-      :rows="1"
-      v-model="content"
-    />
+    <PostContentField />
     <PostTagField :postId="postId" />
     <button class="button large" @click="onClickSubmieButton">
       {{ submitButtonText }}
@@ -15,11 +10,11 @@
 </template>
 
 <script>
-import TextareaField from '@/app/components/textarea-field.vue';
 import { defineComponent } from 'vue';
 import { mapGetters, mapActions, mapMutations } from 'vuex';
 import PostTagField from '@/post/components/post-tag-field';
 import PostTitleField from '@/post/components/post-title-field';
+import PostContentField from '@/post/components/post-content-field';
 
 export default defineComponent({
   name: 'PostCreate',
@@ -161,9 +156,9 @@ export default defineComponent({
    * 使用组件
    */
   components: {
+    PostContentField,
     PostTitleField,
     PostTagField,
-    TextareaField,
   },
 });
 </script>

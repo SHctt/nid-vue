@@ -28,4 +28,8 @@ yarn gc -- reply-list-item-actions --path reply/index/components --vuex mapGette
 
 ## 24.3-创建内容标题字段组件
 
-yarn gc -- post-title-field --path post/components --parent post/create/post-create
+yarn gc -- post-title-field --path post/components --parent post/create/post-create --vuex mapGetters,mapMutations
+
+## 24.4-创建内容正文字段组件
+
+yarn gc -- post-content-field --path post/components --parent post/create/post-create --vuex mapGetters,mapMutations
