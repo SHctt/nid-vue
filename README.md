@@ -1,4 +1,4 @@
-# Vue.js 项目实践：23-内容标签
+# Vue.js 项目实践：24-重构内容创建
 
 未解决的问题：
 1-在 user-avatar 分支，上传头像的动作，服务器端报错，但是在使用 insomnia 测试上传服务端 API 时是没有问题的
@@ -21,19 +21,3 @@ yarn gc -- reply-list-item-actions --path reply/index/components --vuex mapGette
 
 常用：
 // eslint-disable-next-line --- 忽略下一行 any 类型错误
-
-## 23.1-定义内容标签字段组件
-
-yarn gc -- post-tag-field --path post/components --parent post/create/post-create
-
-## 23.2-定义与使用添加内容标签动作
-
-## 23.3-在创建与编辑内容时显示内容标签列表
-
-## 23.4-在内容标签组件里添加删除按钮
-
-## 23.5-定义与使用删除内容标签动作
-
-## 23.6-添加与删除内容标签时的过渡
-
-## 23.7-去掉不需要的参数
