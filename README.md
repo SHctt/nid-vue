@@ -33,3 +33,5 @@ yarn gc -- post-tag-field --path post/components --parent post/create/post-creat
 ## 23.4-在内容标签组件里添加删除按钮
 
 ## 23.5-定义与使用删除内容标签动作
+
+## 23.6-添加与删除内容标签时的过渡
