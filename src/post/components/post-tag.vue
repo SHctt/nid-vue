@@ -3,10 +3,16 @@
     <div class="text">
       <router-link class="link" :to="tagNameLinkTo">{{ tag.name }}</router-link>
     </div>
+    <div class="action" v-if="useDeleteButton">
+      <button class="button basic" @click="onClickCloseButton">
+        <app-icon name="close" size="14" color="#656565" />
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
+import AppIcon from '@/app/components/app-icon.vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -19,8 +25,14 @@ export default defineComponent({
     tag: {
       type: Object,
     },
+
+    useDeleteButton: {
+      type: Boolean,
+      default: false,
+    },
   },
 
+  emits: ['delete'],
   /**
    * 数据
    */
@@ -47,12 +59,16 @@ export default defineComponent({
   /**
    * 组件方法
    */
-  methods: {},
+  methods: {
+    onClickCloseButton() {
+      this.$emit('delete', this.tag.id);
+    },
+  },
 
   /**
    * 使用组件
    */
-  components: {},
+  components: { AppIcon },
 });
 </script>
 
