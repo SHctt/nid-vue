@@ -1,12 +1,18 @@
 <template>
   <div class="post-tag-field">
     <div class="content">
-      <text-field placeholder="标签" v-model="name" @keyup="onKeyUpEnterTag" />
-      <button class="button basic">
+      <text-field
+        placeholder="标签"
+        v-model="name"
+        @keyup.enter="onKeyUpEnterTag"
+      />
+      <button class="button basic" @click="onClickAddButton">
         <app-icon name="add" />
       </button>
     </div>
-    <div class="meta" @click="onClickAddButton"></div>
+    <div class="meta" v-if="tags">
+      <post-tag v-for="tag in tags" :key="tag.id" :tag="tag" />
+    </div>
   </div>
 </template>
 
@@ -15,6 +21,7 @@ import AppIcon from '@/app/components/app-icon.vue';
 import TextField from '@/app/components/text-field.vue';
 import { defineComponent } from 'vue';
 import { mapActions, mapMutations, mapGetters } from 'vuex';
+import PostTag from './post-tag.vue';
 
 export default defineComponent({
   name: 'PostTagField',
@@ -24,7 +31,7 @@ export default defineComponent({
    */
   props: {
     postId: {
-      type: Number,
+      type: String,
     },
   },
 
@@ -41,7 +48,9 @@ export default defineComponent({
    * 计算属性
    */
   computed: {
-    ...mapGetters({}),
+    ...mapGetters({
+      tags: 'post/edit/tags',
+    }),
   },
 
   /**
@@ -88,7 +97,11 @@ export default defineComponent({
   /**
    * 使用组件
    */
-  components: { TextField, AppIcon },
+  components: {
+    TextField,
+    AppIcon,
+    PostTag,
+  },
 });
 </script>
 

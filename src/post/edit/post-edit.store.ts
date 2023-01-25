@@ -3,6 +3,7 @@ import { RootState } from '@/app/app.store';
 import { apiHttpClient } from '@/app/app.service';
 
 export interface PostEditStoreState {
+  tags: Array<TagItem>;
   loading: boolean;
 }
 
@@ -36,6 +37,7 @@ export const postEditStoreModule: Module<PostEditStoreState, RootState> = {
    * 数据
    */
   state: {
+    tags: [],
     loading: false,
   } as PostEditStoreState,
 
@@ -46,6 +48,10 @@ export const postEditStoreModule: Module<PostEditStoreState, RootState> = {
     loading(state) {
       return state.loading;
     },
+
+    tags(state) {
+      return state.tags;
+    },
   },
 
   /**
@@ -54,6 +60,10 @@ export const postEditStoreModule: Module<PostEditStoreState, RootState> = {
   mutations: {
     setLoading(state, data) {
       state.loading = data;
+    },
+
+    setTags(state, data) {
+      state.tags = data;
     },
   },
 
@@ -83,14 +93,24 @@ export const postEditStoreModule: Module<PostEditStoreState, RootState> = {
       }
     },
 
-    async createPostTag({ commit }, options: CreatePostTagOptions = {}) {
+    async createPostTag(
+      { commit, dispatch },
+      options: CreatePostTagOptions = {},
+    ) {
       commit('setLoading', true);
 
       const { postId, data } = options;
 
       try {
         const response = await apiHttpClient.post(`posts/${postId}/tag`, data);
+
+        const {
+          data: { tags },
+        } = await dispatch(`post/show/getPostById`, postId, { root: true });
+
         commit('setLoading', false);
+
+        commit('setTags', tags);
 
         return response;
       } catch (error) {
