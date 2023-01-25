@@ -51,7 +51,7 @@ export default defineComponent({
   },
 
   watch: {
-    $route(to, from) {
+    $route(to) {
       const { post: postId } = to.query;
       if (postId) {
         this.getPost(postId);
