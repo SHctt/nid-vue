@@ -5,6 +5,7 @@
       class="bordered"
       :rows="1"
       v-model="postContent"
+      @dirty="onDirtyContent"
     />
   </div>
 </template>
@@ -60,7 +61,11 @@ export default defineComponent({
   methods: {
     ...mapMutations({
       setContent: 'post/create/setContent',
+      setUnsaved: 'post/create/setUnsaved',
     }),
+    onDirtyContent() {
+      this.setUnsaved(true);
+    },
   },
 
   /**

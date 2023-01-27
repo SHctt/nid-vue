@@ -33,3 +33,9 @@ yarn gc -- post-title-field --path post/components --parent post/create/post-cre
 ## 24.4-创建内容正文字段组件
 
 yarn gc -- post-content-field --path post/components --parent post/create/post-create --vuex mapGetters,mapMutations
+
+## 24.5-改进创建内容页面上的创建动作
+
+先创建 post-actions 组件：
+yarn gc -- post-actions --path post/components --parent post/create/post-create --vuex
+再改进相关组件
