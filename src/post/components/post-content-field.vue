@@ -36,6 +36,7 @@ export default defineComponent({
   computed: {
     ...mapGetters({
       content: 'post/create/content',
+      unsaved: 'post/create/unsaved',
     }),
 
     postContent: {
@@ -64,7 +65,9 @@ export default defineComponent({
       setUnsaved: 'post/create/setUnsaved',
     }),
     onDirtyContent() {
-      this.setUnsaved(true);
+      if (!this.unsaved) {
+        this.setUnsaved(true);
+      }
     },
   },
 

@@ -142,6 +142,7 @@ export default defineComponent({
       this.setContent('');
       this.setPostId(null);
       this.setTags(null);
+      this.setUnsaved(false);
     },
   },
 

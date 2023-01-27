@@ -34,8 +34,12 @@ yarn gc -- post-title-field --path post/components --parent post/create/post-cre
 
 yarn gc -- post-content-field --path post/components --parent post/create/post-create --vuex mapGetters,mapMutations
 
-## 24.5-改进创建内容页面上的创建动作
+## 24.5-改进：创建内容页面上的创建动作
 
 先创建 post-actions 组件：
 yarn gc -- post-actions --path post/components --parent post/create/post-create --vuex
 再改进相关组件
+
+## 24.6-改进：用 input 事件触发 dirty 事件
+
+dirty 事件，就时表示的输入的内容没有被保存时，发布或者更新按钮的样式会变成 outline 样式
