@@ -1,4 +1,4 @@
-# Vue.js 项目实践：24-重构内容创建
+# Vue.js 项目实践：25-上传内容文件
 
 未解决的问题：
 1-在 user-avatar 分支，上传头像的动作，服务器端报错，但是在使用 insomnia 测试上传服务端 API 时是没有问题的
@@ -21,41 +21,3 @@ yarn gc -- reply-list-item-actions --path reply/index/components --vuex mapGette
 
 常用：
 // eslint-disable-next-line --- 忽略下一行 any 类型错误
-
-## 24.1-修正参数的类型错误
-
-## 24.2-把创建内容组件里的数据放在 Store 模块里
-
-## 24.3-创建内容标题字段组件
-
-yarn gc -- post-title-field --path post/components --parent post/create/post-create --vuex mapGetters,mapMutations
-
-## 24.4-创建内容正文字段组件
-
-yarn gc -- post-content-field --path post/components --parent post/create/post-create --vuex mapGetters,mapMutations
-
-## 24.5-改进：创建内容页面上的创建动作
-
-先创建 post-actions 组件：
-yarn gc -- post-actions --path post/components --parent post/create/post-create --vuex
-再改进相关组件
-
-## 24.6-改进：用 input 事件触发 dirty 事件
-
-dirty 事件，就时表示的输入的内容没有被保存时，发布或者更新按钮的样式会变成 outline 样式
-
-## 24.7-准备删除内容按钮
-
-## 24.8-删除按钮自动恢复状态
-
-## 24.9-定义删除内容 Store 模块
-
-yarn gs -- post-destroy --path post/destory --parent post --method delete --action deletePost --module destroy
-
-## 24.10-定义内容元数据组件
-
-yarn gc -- post-meta --path post/components --parent post/create/post-create
-
-## 24.11-创建内容编辑按钮组件
-
-yarn gc -- post-show-edit --path post/show/components --parent post/show/post-show --vuex mapGetters

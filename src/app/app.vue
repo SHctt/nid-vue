@@ -13,7 +13,7 @@ export default {
   components: { AppLayout },
   data() {
     return {
-      name: '重构内容创建',
+      name: '上传内容文件',
       layout: 'AppLayout',
     };
   },
