@@ -55,3 +55,7 @@ yarn gs -- post-destroy --path post/destory --parent post --method delete --acti
 ## 24.10-定义内容元数据组件
 
 yarn gc -- post-meta --path post/components --parent post/create/post-create
+
+## 24.11-创建内容编辑按钮组件
+
+yarn gc -- post-show-edit --path post/show/components --parent post/show/post-show --vuex mapGetters

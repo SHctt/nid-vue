@@ -6,9 +6,10 @@
       <post-show-file-meta :post="post" />
       <post-show-action :post="post" />
     </div>
-    <post-show-header :post="post" />
+    <post-show-header :post="post" @click="onClickPostHeader" />
     <post-show-content :post="post" />
     <post-show-tags v-if="post.tags" :tags="post.tags" />
+    <PostShowEdit :post="post" v-if="showPostEdit" />
   </div>
 </template>
 
@@ -23,9 +24,11 @@ import PostShowAction from './components/post-show-action.vue';
 import PostShowFileMeta from './components/post-show-file-meta.vue';
 import PostShowTags from './components/post-show-tags.vue';
 import PostShowSkeleton from './components/post-show-skeleton.vue';
+import PostShowEdit from '@/post/show/components/post-show-edit';
 
 export default defineComponent({
   components: {
+    PostShowEdit,
     postShowMedia,
     PostShowHeader,
     PostShowContent,
@@ -38,6 +41,12 @@ export default defineComponent({
     if ((this, PostShowSkeleton.showPost)) {
       return this.post.title;
     }
+  },
+
+  data() {
+    return {
+      showPostEdit: false,
+    };
   },
 
   props: {
@@ -104,6 +113,9 @@ export default defineComponent({
           }
           break;
       }
+    },
+    onClickPostHeader() {
+      this.showPostEdit = !this.showPostEdit;
     },
   },
 });

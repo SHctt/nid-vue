@@ -1,7 +1,7 @@
 <template>
   <div class="post-show-header">
     <div class="content">
-      <h1 class="text">
+      <h1 class="text" @click="onClickPostTitle">
         {{ post.title }}
       </h1>
       <div class="meta">
@@ -22,6 +22,7 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'PostShowHeader',
 
+  emits: ['click'],
   /**
    * 属性
    */
@@ -53,7 +54,11 @@ export default defineComponent({
   /**
    * 组件方法
    */
-  methods: {},
+  methods: {
+    onClickPostTitle() {
+      this.$emit('click');
+    },
+  },
 
   /**
    * 使用组件
