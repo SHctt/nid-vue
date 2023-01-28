@@ -47,3 +47,7 @@ dirty 事件，就时表示的输入的内容没有被保存时，发布或者�
 ## 24.7-准备删除内容按钮
 
 ## 24.8-删除按钮自动恢复状态
+
+## 24.9-定义删除内容 Store 模块
+
+yarn gs -- post-destroy --path post/destory --parent post --method delete --action deletePost --module destroy

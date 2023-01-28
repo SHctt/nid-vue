@@ -6,6 +6,7 @@
     <PostActions
       @update="submitUpdatePost"
       @create="submitCreatePost"
+      @delete="onDeletePost"
       size="large"
       :useDeleteButton="postId ? true : false"
     />
@@ -86,6 +87,7 @@ export default defineComponent({
       pushMessage: 'notification/pushMessage',
       getPostById: 'post/show/getPostById',
       updatePost: 'post/edit/updatePost',
+      deletePost: 'post/destroy/deletePost',
     }),
 
     async submitUpdatePost() {
@@ -144,6 +146,16 @@ export default defineComponent({
       this.setPostId(null);
       this.setTags(null);
       this.setUnsaved(false);
+    },
+
+    async onDeletePost() {
+      try {
+        await this.deletePost({ postId: this.postId });
+
+        this.$router.push({ name: 'postCreate' });
+      } catch (error) {
+        this.pushMessage({ content: error.data.message });
+      }
     },
   },
 
