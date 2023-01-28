@@ -1,5 +1,12 @@
 <template>
   <div class="post-actions">
+    <button
+      :class="deleteButtonClasses"
+      @click="onClickDeleteButton"
+      v-if="useDeleteButton"
+    >
+      {{ deleteButtonText }}
+    </button>
     <button :class="submitButtonClasses" @click="onClickSubmitButton">
       {{ submitButtonText }}
     </button>
@@ -13,7 +20,7 @@ import { mapGetters, mapMutations, mapActions } from 'vuex';
 export default defineComponent({
   name: 'PostActions',
 
-  emits: ['update', 'create'],
+  emits: ['update', 'create', 'delete'],
 
   /**
    * 属性
@@ -22,13 +29,19 @@ export default defineComponent({
     size: {
       type: String,
     },
+
+    useDeleteButton: {
+      type: Boolean,
+    },
   },
 
   /**
    * 数据
    */
   data() {
-    return {};
+    return {
+      confirmDelete: false,
+    };
   },
 
   /**
@@ -46,6 +59,14 @@ export default defineComponent({
 
     submitButtonClasses() {
       return ['button', this.size, { outline: this.unsaved }];
+    },
+
+    deleteButtonText() {
+      return this.confirmDelete ? '确认删除' : '删除';
+    },
+
+    deleteButtonClasses() {
+      return ['button', this.size, 'red', { outline: this.confirmDelete }];
     },
   },
 
@@ -71,6 +92,10 @@ export default defineComponent({
       } else {
         this.$emit('create');
       }
+    },
+
+    onClickDeleteButton() {
+      this.confirmDelete = !this.confirmDelete;
     },
   },
 

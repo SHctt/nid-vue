@@ -7,6 +7,7 @@
       @update="submitUpdatePost"
       @create="submitCreatePost"
       size="large"
+      :useDeleteButton="postId ? true : false"
     />
   </div>
 </template>

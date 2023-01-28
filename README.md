@@ -43,3 +43,5 @@ yarn gc -- post-actions --path post/components --parent post/create/post-create 
 ## 24.6-改进：用 input 事件触发 dirty 事件
 
 dirty 事件，就时表示的输入的内容没有被保存时，发布或者更新按钮的样式会变成 outline 样式
+
+## 24.7-准备删除内容按钮
