@@ -51,3 +51,7 @@ dirty 事件，就时表示的输入的内容没有被保存时，发布或者�
 ## 24.9-定义删除内容 Store 模块
 
 yarn gs -- post-destroy --path post/destory --parent post --method delete --action deletePost --module destroy
+
+## 24.10-定义内容元数据组件
+
+yarn gc -- post-meta --path post/components --parent post/create/post-create

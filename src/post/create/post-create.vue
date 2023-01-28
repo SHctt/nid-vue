@@ -10,6 +10,7 @@
       size="large"
       :useDeleteButton="postId ? true : false"
     />
+    <PostMeta :post="post" v-if="postId && post" />
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import PostTagField from '@/post/components/post-tag-field';
 import PostTitleField from '@/post/components/post-title-field';
 import PostContentField from '@/post/components/post-content-field';
 import PostActions from '@/post/components/post-actions';
+import PostMeta from '@/post/components/post-meta';
 
 export default defineComponent({
   name: 'PostCreate',
@@ -101,6 +103,7 @@ export default defineComponent({
         });
 
         this.setUnsaved(false);
+        this.getPost(this.postId);
       } catch (error) {
         this.pushMessage({ content: error.data.message });
       }
@@ -121,6 +124,7 @@ export default defineComponent({
         });
 
         this.setUnsaved(false);
+        this.getPost(this.postId);
       } catch (error) {
         this.pushMessage({ content: error.data.message });
       }
@@ -163,6 +167,7 @@ export default defineComponent({
    * 使用组件
    */
   components: {
+    PostMeta,
     PostActions,
     PostContentField,
     PostTitleField,
