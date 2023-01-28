@@ -41,6 +41,7 @@ export default defineComponent({
   data() {
     return {
       confirmDelete: false,
+      timeoutId: null,
     };
   },
 
@@ -95,7 +96,19 @@ export default defineComponent({
     },
 
     onClickDeleteButton() {
+      if (this.timeoutId) {
+        clearInterval(this.timeoutId);
+      }
+      if (!this.confirmDelete) {
+        this.$emit('delete');
+      }
       this.confirmDelete = !this.confirmDelete;
+
+      if (this.confirmDelete) {
+        this.timeoutId = setTimeout(() => {
+          this.confirmDelete = false;
+        }, 3000);
+      }
     },
   },
 

@@ -45,3 +45,5 @@ yarn gc -- post-actions --path post/components --parent post/create/post-create 
 dirty 事件，就时表示的输入的内容没有被保存时，发布或者更新按钮的样式会变成 outline 样式
 
 ## 24.7-准备删除内容按钮
+
+## 24.8-删除按钮自动恢复状态
