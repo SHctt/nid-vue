@@ -39,3 +39,5 @@ yarn gs -- file-create --path file/create --parent file/file --module create --a
 ## 25.5-创建内容的媒体文件上传的组件
 
 yarn gc -- file-create-media --path file/create/components --parent file-create --vuex mapGetters
+
+## 25.6-准备上传文件的动作
