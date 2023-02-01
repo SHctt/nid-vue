@@ -41,3 +41,7 @@ yarn gs -- file-create --path file/create --parent file/file --module create --a
 yarn gc -- file-create-media --path file/create/components --parent file-create --vuex mapGetters
 
 ## 25.6-准备上传文件的动作
+
+## 25.7-创建显示文件上传进度的组件
+
+yarn gc -- file-create-status --path file/create/components --parent file-create --vuex mapGetters

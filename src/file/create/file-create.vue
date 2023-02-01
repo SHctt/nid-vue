@@ -2,6 +2,7 @@
   <div :class="fileCreateClasses">
     <FileCreateMedia v-if="previewImage" />
     <FileCreateDragZone @change="onChangeDragZone" />
+    <FileCreateStatus />
   </div>
 </template>
 
@@ -10,6 +11,7 @@ import { defineComponent } from 'vue';
 import { mapGetters, mapMutations, mapActions } from 'vuex';
 import FileCreateDragZone from '@/file/create/components/file-create-drag-zone';
 import FileCreateMedia from '@/file/create/components/file-create-media';
+import FileCreateStatus from '@/file/create/components/file-create-status';
 
 export default defineComponent({
   name: 'FileCreate',
@@ -85,6 +87,7 @@ export default defineComponent({
    * 使用组件
    */
   components: {
+    FileCreateStatus,
     FileCreateMedia,
     FileCreateDragZone,
   },
