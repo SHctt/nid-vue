@@ -25,3 +25,7 @@ yarn gc -- reply-list-item-actions --path reply/index/components --vuex mapGette
 ## 25.1-创建上传文件用的组件
 
 yarn gc -- file-create --parent post-create --vuex
+
+## 25.2-创建文件拖放组件
+
+yarn gc -- file-create-drag-zone --path file/create/components --parent file-create --vuex mapGetters
