@@ -29,3 +29,5 @@ yarn gc -- file-create --parent post-create --vuex
 ## 25.2-创建文件拖放组件
 
 yarn gc -- file-create-drag-zone --path file/create/components --parent file-create --vuex mapGetters
+
+## 25.3-拖放选择文件

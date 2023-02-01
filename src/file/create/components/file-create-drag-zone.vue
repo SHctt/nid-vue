@@ -1,5 +1,11 @@
 <template>
-  <div class="file-create-drag-zone">
+  <div
+    :class="FileCreateDragZoneClasses"
+    @dragover.prevent
+    @drop.prevent="onDrapDragZone"
+    @dragenter="onDragEnterDragZone"
+    @dragleave="onDrageLeaveDragZone"
+  >
     <file-field
       name="file"
       @change="onChangeFile"
@@ -28,7 +34,9 @@ export default defineComponent({
    * 数据
    */
   data() {
-    return {};
+    return {
+      isOverlay: false,
+    };
   },
 
   /**
@@ -39,6 +47,14 @@ export default defineComponent({
 
     fileFieldText() {
       return '选择文件';
+    },
+
+    FileCreateDragZoneClasses() {
+      return [
+        'file-create-drag-zone',
+        { overlay: this.isOverlay },
+        { active: false },
+      ];
     },
   },
 
@@ -55,6 +71,19 @@ export default defineComponent({
   methods: {
     onChangeFile(files) {
       this.$emit('change', files);
+    },
+
+    onDrapDragZone(event) {
+      this.isOverlay = false;
+      this.$emit('change', event.dataTransfer.files);
+    },
+
+    onDragEnterDragZone() {
+      this.isOverlay = true;
+    },
+
+    onDrageLeaveDragZone() {
+      this.isOverlay = false;
     },
   },
 
