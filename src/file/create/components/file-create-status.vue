@@ -1,9 +1,9 @@
 <template>
   <div class="file-create-status">
-    <div class="upload-process">
+    <div class="upload-progress">
       <div class="content">
         <div class="text" :style="textWidth">
-          {{ uploadProcess }}
+          {{ uploadProgress }}
         </div>
         <div class="symbol">%</div>
       </div>
@@ -36,15 +36,15 @@ export default defineComponent({
    */
   computed: {
     ...mapGetters({
-      uploadProcess: 'file/create/uploadProcess',
+      uploadProgress: 'file/create/uploadProgress',
     }),
 
     overlayWidth() {
-      return `${100 - this.uploadProcess}%`;
+      return `${100 - this.uploadProgress}%`;
     },
 
     textWidth() {
-      return this.uploadProcess > 9 ? '120px' : '60px';
+      return this.uploadProgress > 9 ? '120px' : '60px';
     },
   },
 

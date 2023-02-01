@@ -1,8 +1,8 @@
 <template>
   <div :class="fileCreateClasses">
     <FileCreateMedia v-if="previewImage" />
-    <FileCreateDragZone @change="onChangeDragZone" />
-    <FileCreateStatus />
+    <FileCreateDragZone @change="onChangeDragZone" v-if="!uploading" />
+    <FileCreateStatus v-if="uploading" />
   </div>
 </template>
 
@@ -36,6 +36,7 @@ export default defineComponent({
   computed: {
     ...mapGetters({
       previewImage: 'file/create/previewImage',
+      uploading: 'file/create/uploading',
     }),
 
     fileCreateClasses() {

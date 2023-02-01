@@ -45,3 +45,7 @@ yarn gc -- file-create-media --path file/create/components --parent file-create 
 ## 25.7-创建显示文件上传进度的组件
 
 yarn gc -- file-create-status --path file/create/components --parent file-create --vuex mapGetters
+
+## 25.8-定义上传进度数据
+
+修正：修正了文件上传进度数据参数，补写了组件的样式
