@@ -35,3 +35,7 @@ yarn gc -- file-create-drag-zone --path file/create/components --parent file-cre
 ## 25.4-创建上传文件的 store 模块
 
 yarn gs -- file-create --path file/create --parent file/file --module create --action createFile
+
+## 25.5-创建内容的媒体文件上传的组件
+
+yarn gc -- file-create-media --path file/create/components --parent file-create --vuex mapGetters

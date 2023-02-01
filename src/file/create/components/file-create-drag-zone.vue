@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="FileCreateDragZoneClasses"
+    :class="fileCreateDragZoneClasses"
     @dragover.prevent
     @drop.prevent="onDrapDragZone"
     @dragenter="onDragEnterDragZone"
@@ -49,7 +49,7 @@ export default defineComponent({
       return '选择文件';
     },
 
-    FileCreateDragZoneClasses() {
+    fileCreateDragZoneClasses() {
       return [
         'file-create-drag-zone',
         { overlay: this.isOverlay },
