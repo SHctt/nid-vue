@@ -53,3 +53,5 @@ yarn gc -- file-create-status --path file/create/components --parent file-create
 ## 25.9-上传与创建文件
 
 错误：这里出现与上传头像时同样的错误，通过 VUE 组件上传图片时，服务端会报错，并停止，出现无法读取文件路径的错误；
+
+## 25.10-改进：更新内容时的闪动
