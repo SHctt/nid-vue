@@ -92,6 +92,8 @@ export const fileCreateStoreModule: Module<FileCreateStoreState, RootState> = {
 
       formData.append('file', file as any);
 
+      console.log(formData);
+
       try {
         const response = await apiHttpClient.post(
           `files?post=${postId}`,

@@ -49,3 +49,7 @@ yarn gc -- file-create-status --path file/create/components --parent file-create
 ## 25.8-定义上传进度数据
 
 修正：修正了文件上传进度数据参数，补写了组件的样式
+
+## 25.9-上传与创建文件
+
+错误：这里出现与上传头像时同样的错误，通过 VUE 组件上传图片时，服务端会报错，并停止，出现无法读取文件路径的错误；

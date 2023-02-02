@@ -104,7 +104,6 @@ export default defineComponent({
       if (files.length) {
         this.avatarFile = files[0];
         this.createAvatarPreviewImage(this.avatarFile);
-        console.log(this.avatarFile);
       }
     },
 
@@ -125,6 +124,4 @@ export default defineComponent({
   components: { ButtonField, FileField },
 });
 </script>
-FileField
-
 <style scoped></style>

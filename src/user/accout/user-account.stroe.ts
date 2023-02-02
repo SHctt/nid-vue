@@ -59,6 +59,7 @@ export const userAccountStoreModule: Module<
 
       const formData = new FormData();
       formData.append('avatar', file);
+      console.log(formData.get('avatar'));
 
       try {
         const response = await apiHttpClient.post('/avatar', formData);

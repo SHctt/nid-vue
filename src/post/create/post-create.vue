@@ -49,6 +49,7 @@ export default defineComponent({
       title: 'post/create/title',
       content: 'post/create/content',
       post: 'post/show/post',
+      selectedFile: 'file/create/selectedFile',
     }),
   },
 
@@ -94,6 +95,7 @@ export default defineComponent({
       getPostById: 'post/show/getPostById',
       updatePost: 'post/edit/updatePost',
       deletePost: 'post/destroy/deletePost',
+      createFile: 'file/create/createFile',
     }),
 
     async submitUpdatePost() {
@@ -120,6 +122,7 @@ export default defineComponent({
             title: this.title,
             content: this.content,
           },
+          file: this.selectedFile,
         });
 
         this.$router.push({
@@ -179,6 +182,20 @@ export default defineComponent({
 
       if (!this.title) {
         this.setTitle(file.name.split('.')[0]);
+      }
+
+      if (this.postId) {
+        this.submitCreateFile();
+      } else {
+        this.submitCreatePost();
+      }
+    },
+
+    async submitCreateFile() {
+      try {
+        await this.createFile({ postId: this.postId, file: this.selectedFile });
+      } catch (error) {
+        this.pushMessage({ content: error.data.message });
       }
     },
   },
